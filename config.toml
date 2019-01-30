@@ -51,5 +51,9 @@ disqusShortname = "https-www-matt-h-xyz"
     url = "/about/"
 [[menu.main]]
     name = "Contact"
-    weight = 2
+    weight = 3
     url = "/contact/"
+[[menu.main]]
+    name = "Career"
+    weight = 3
+    url = "/career/"
