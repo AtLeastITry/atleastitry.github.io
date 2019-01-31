@@ -1,6 +1,6 @@
 <section class="cd-timeline js-cd-timeline">
     <div class="cd-timeline__container">
-        {{ range $.Site.Data.career.events }}
+        {{ range sort $.Site.Data.career.events "order" }}
         <div class="cd-timeline__block js-cd-block">
             <div class="cd-timeline__img cd-timeline__img--picture js-cd-img">
             </div>
