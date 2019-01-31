@@ -13,10 +13,20 @@
     border-right-color: transparent;
     border-bottom-color: transparent;
     border-left-color: transparent;
-    padding: .375rem .75rem;
+    padding: .575rem 1.4rem;
     line-height: 1.5;
-    border-radius: .25rem;
+    border-radius: .40rem;
+    cursor: pointer;
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.button:hover {
+  color: #fff;
+  background-color: #5a6268;
+  border-color: #545b62;
 }
 
 .form-group {
@@ -27,15 +37,23 @@
 .form-control {
     display: block;
     width: 100%;
-    padding: .375rem .75rem;
+    padding: .775rem 1.4rem;
     font-size: 1.5rem;
     line-height: 1.5;
     color: #495057;
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #ced4da;
-    border-radius: .25rem;
+    border-radius: .40rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
 }
 
 .cd-timeline {
