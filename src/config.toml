@@ -1,8 +1,9 @@
-baseurl = "https://www.matt-h.xyz"
-title = "matt-h.xyz"
+baseurl = "https://www.matt-h.dev"
+title = "matt-h.dev"
 theme = "hugo-coder"
 languagecode = "en"
 defaultcontentlanguage = "en"
+publishDir = "../docs/"
 
 paginate = 20
 canonifyurls = true
@@ -11,7 +12,7 @@ pygmentsstyle = "bw"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
-disqusShortname = "https-www-matt-h-xyz"
+disqusShortname = "https-www-matt-h-dev"
 
 [params]
     author = "Matt Hope"
