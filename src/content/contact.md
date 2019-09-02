@@ -4,7 +4,7 @@ date: 2019-01-29T20:16:47Z
 draft: false
 ---
 
-<form class="form" action="https://formspree.io/business@matt-h.xyz" method="POST">
+<form class="form" action="https://formspree.io/matthew.hope396@outlook.com" method="POST">
     <div class="form-group">
         <input type="text" name="name" class="form-control" placeholder="Your name...">
     </div>
