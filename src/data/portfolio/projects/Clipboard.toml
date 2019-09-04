@@ -1,0 +1,5 @@
+order = 1
+title = "Clipboard"
+description = "A c# library that provides the ability to extract text from various document file formats"
+project_url = "https://clipboard-org.github.io/clipboard-marketing/"
+repo_url = "https://github.com/clipboard-org/clipboard"

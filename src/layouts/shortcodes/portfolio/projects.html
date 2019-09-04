@@ -1,0 +1,23 @@
+{{ range sort $.Site.Data.portfolio.projects "order" }}
+    <div class="project text-center">
+        <div class="project-body">
+            <div class="text-center">
+                {{ if .logo }}
+                <img src="/images/{{ .logo }}" style="max-height: 87px;" alt="...">
+                {{ else }}
+                <i class="fas fa-code fa-6x"></i>
+                {{ end }}
+            </div>
+            <h4 class="project-title">{{ .title }}</h4>
+            <p class="project-text">{{ .description }}</p>
+        </div>
+        <div class="project-footer">
+            {{ if .repo_url }}
+            <a href="{{ .repo_url }}"><i class="fab fa-github fa-3x"></i></a>
+            {{ end }}
+            {{ if .project_url }}
+            <a href="{{ .project_url }}"><i class="fas fa-link fa-3x"></i></a>
+            {{ end }}
+        </div>
+    </div>
+{{ end }}
