@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Your description">
+	<meta name="author" content="Your name">
+	<meta name="generator" content="Hugo 0.57.2" />
+	<title>Free hosting with GitHub pages &middot; matt-h</title>
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="https://www.matt-h.dev/css/main.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="https://www.matt-h.dev/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://www.matt-h.dev/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://www.matt-h.dev/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://www.matt-h.dev/" class="logo"><strong>matt-h</strong> <span></span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://www.matt-h.dev/">Home</a></li>
+            
+                <li><a href="https://www.matt-h.dev/blog">Blog</a></li>
+            
+                <li><a href="https://www.matt-h.dev/career">career</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major">
+                                <h1>Free hosting with GitHub pages</h1>
+                            </header>
+                            
+                            
+
+<p>With the use of GitHub pages and Cloudflare, it is very possible to host your own static website over HTTPS for free. However, there are a few pre-requisites:</p>
+
+<ul>
+<li>A GitHub account (register <a href="https://github.com/join">here</a>)</li>
+<li>A CloudFlare account (register <a href="https://dash.cloudflare.com/sign-up">here</a>)</li>
+<li>An installation of <a href="https://gohugo.io/getting-started/installing/">Hugo</a> (Optional)</li>
+</ul>
+
+<p>Once you have signed up to both of the services the first thing to do is create yourself a new GitHub repository</p>
+
+<h2 id="setting-up-github-pages">Setting up GitHub Pages</h2>
+
+<h3 id="step-1-create-a-new-repository">Step 1 - Create a new repository</h3>
+
+<p><img src="/img/blog/free_hosting_github_pages/new_repository.jpg" alt="new_repository" />
+First, we need to create a new GitHub repository, use a name with the following naming convention: <code>&lt;your username/organisation&gt;.github.io</code></p>
+
+<h3 id="step-2-clone-your-new-repository">Step 2 - Clone your new repository</h3>
+
+<p><img src="/img/blog/free_hosting_github_pages/clone_repository.jpg" alt="clone_repository" />
+Once we have set up our new repository we now need to clone it. To do so should be as simple as copying the link visible on the page and running <code>git clone &lt;your repository link&gt;</code></p>
+
+<p>once the repository has been cloned you need to open of command terminal and navigate to the folder of your repository and execute the following commands:</p>
+
+<ol>
+<li><code>git init</code></li>
+<li><code>git add README.md</code></li>
+<li><code>git commit -m &quot;first commit&quot;</code></li>
+<li><code>git remote add origin &lt;your repository link&gt;</code></li>
+<li><code>git push -u origin master</code></li>
+</ol>
+
+<h3 id="step-3-set-up-hugo-optional">Step 3 - Set up Hugo (optional)</h3>
+
+<p>The first step to setting up Hugo in your repository is to open up a command prompt and navigate to your repository folder. Once there you need to execute the following command <code>hugo new site src</code> this will create a new Hugo site in a folder called <code>src</code>. You also need to create a folder in the root of your repository called <code>docs</code>. The last step is to update the <code>config.toml</code> file in the root of the <code>src</code> directory. You simply need to add the following line <code>publishDir = &quot;../docs/&quot;</code>.</p>
+
+<p>Once you have completed the previous steps you simply need to execute the <code>hugo</code> command in the <code>src</code> directory and then commit all changes and push them to source control.</p>
+
+<h3 id="step-4-create-a-cname-file-optional">Step 4 - Create a CNAME file (optional)</h3>
+
+<p>This step is only for those of you who have a custom domain and wish to use it.
+Once we have a local copy of our new repository the next step is to create a CNAME file which points to our custom domain. <a href="/download/blog/free_hosting_github_pages/CNAME" download>Here</a> is an example file which you can use, just replace the domain with your own.</p>
+
+<p>Once you have a CNAME file simply need to commit and push it to the root of your repository (or in the docs folder if you decided to go through step 3).</p>
+
+<h2 id="setting-up-cloudflare-optional">Setting up CloudFlare (Optional)</h2>
+
+<h3 id="step-1-registering-your-site">Step 1 - Registering your site</h3>
+
+<p><img src="/img/blog/free_hosting_github_pages/cloudflare_register.jpg" alt="cloudflare_register" />
+Once you have set up your GitHub pages website the next step is to register your custom domain with Cloudflare. Log into your Cloudflare account and add your site using the page above and follow the onscreen instructions.</p>
+
+<h3 id="step-2-configuring-dns">Step 2 - Configuring DNS</h3>
+
+<p><img src="/img/blog/free_hosting_github_pages/cloudflare_dns.jpg" alt="cloudflare_dns" />
+Once you have registered your site and it has been verified, you are now ready to configure the DNS records to make sure we can access your GitHub pages website via your custom domain.</p>
+
+<p>All you need to do is simply create a CNAME record with the name of <code>www</code> and the value of your GitHub pages account e.g <code>&lt;your username/organisation&gt;.github.io</code>.</p>
+
+<h3 id="step-3-enable-https-recommended">Step 3 - Enable HTTPS (Recommended)</h3>
+
+<p>To enable https you need to navigate to the <code>SSL/TLS</code> tab and specify your SSL certificate to be <code>Full</code>.</p>
+
+<h3 id="step-4-enable-caching-recommended">Step 4 - Enable caching (Recommended)</h3>
+
+<p>To enable caching you need to navigate to the <code>caching</code> tab and set the caching level to <code>Standard</code>.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>And there you have it, you should now have a fully functional website on your own custom domain with absolutely no hosting fees.</p>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="https://www.facebook.com" class="icon alt fa-facebook" target="_blank"><span class="label">Facebook</span></a></li>
+                
+                    <li><a href="https://github.com/AtLeastITry" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://www.linkedin.com" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; matt-h</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://www.matt-h.dev/js/jquery.min.js"></script>
+    <script src="https://www.matt-h.dev/js/jquery.scrolly.min.js"></script>
+    <script src="https://www.matt-h.dev/js/jquery.scrollex.min.js"></script>
+    <script src="https://www.matt-h.dev/js/skel.min.js"></script>
+    <script src="https://www.matt-h.dev/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://www.matt-h.dev/js/main.js"></script>
+
+    
+
+    
+
+    </body>
+</html>

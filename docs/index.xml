@@ -24,6 +24,17 @@
     </item>
     
     <item>
+      <title>Free hosting with GitHub pages</title>
+      <link>https://www.matt-h.dev/blog/free-hosting/</link>
+      <pubDate>Thu, 09 May 2019 18:28:45 +0000</pubDate>
+      
+      <guid>https://www.matt-h.dev/blog/free-hosting/</guid>
+      <description>With the use of GitHub pages and Cloudflare, it is very possible to host your own static website over HTTPS for free. However, there are a few pre-requisites:
+ A GitHub account (register here) A CloudFlare account (register here) An installation of Hugo (Optional)  Once you have signed up to both of the services the first thing to do is create yourself a new GitHub repository
+Setting up GitHub Pages Step 1 - Create a new repository First, we need to create a new GitHub repository, use a name with the following naming convention: &amp;lt;your username/organisation&amp;gt;.</description>
+    </item>
+    
+    <item>
       <title>Career</title>
       <link>https://www.matt-h.dev/career/</link>
       <pubDate>Wed, 30 Jan 2019 22:04:11 +0000</pubDate>

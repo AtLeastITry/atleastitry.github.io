@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on matt-h</title>
-    <link>https://www.matt-h.dev/blog/</link>
-    <description>Recent content in Blog on matt-h</description>
+    <title>How to on matt-h</title>
+    <link>https://www.matt-h.dev/categories/how-to/</link>
+    <description>Recent content in How to on matt-h</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 31 Oct 2017 22:27:21 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 09 May 2019 18:28:45 +0000</lastBuildDate>
     
-	<atom:link href="https://www.matt-h.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.matt-h.dev/categories/how-to/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
