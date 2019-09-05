@@ -79,31 +79,31 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "Clipboard"
       subtitle = "Document text extractor"
-      image = "pic02.jpg"
+      image = "placeholder.jpg"
       url = "https://github.com/clipboard-org/clipboard"
 
     [[params.tiles.showcase]]
       title = "SSLEngine"
       subtitle = "OpenSSL Wrapper"
-      image = "pic03.jpg"
+      image = "placeholder.jpg"
       url = "https://github.com/AtLeastITry/sslengine"
 
     [[params.tiles.showcase]]
       title = "Chatbot"
       subtitle = "ML based chatbot"
-      image = "pic04.jpg"
+      image = "placeholder.jpg"
       url = "https://github.com/AtLeastITry/seq2seq-keras-chatBot"
 
     [[params.tiles.showcase]]
       title = "Blocker"
       subtitle = "Multiplayer turn based board game"
-      image = "pic05.jpg"
+      image = "placeholder.jpg"
       url = "https://github.com/AtLeastITry/Blocker"
 
     [[params.tiles.showcase]]
       title = "APC"
       subtitle = "ANTLR python compiler"
-      image = "pic06.jpg"
+      image = "placeholder.jpg"
       url = "https://github.com/AtLeastITry/antlr-python-compiler"
     # You can make more showcases by copy and pasting the code above
 
@@ -117,14 +117,10 @@ disqusShortname = ""
   # Section Type Two
   [params.two]
     enable = true
-    title = "Massa libero"
-    subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
-    Mauris aliquet magna magna sed nunc rhoncus pharetra. 
-    Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. 
-    Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero.
-    Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus."""
-    buttonText = "Get Started"
-    url = "blogs"
+    title = "About me"
+    subtitle = """"""
+    buttonText = "Blog"
+    url = "blog"
 
 
   # Contact section
