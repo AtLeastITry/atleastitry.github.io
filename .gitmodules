@@ -1,2 +1,2 @@
-[submodule "src/themes/hugo-coder"]
-	url = https://github.com/luizdepra/hugo-coder.git
+[submodule "src/themes/forty"]
+	url = https://github.com/MarcusVirg/forty

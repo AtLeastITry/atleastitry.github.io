@@ -3,13 +3,14 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.matt-h.dev/</loc>
+    <loc>https://www.matt-h.dev/portfolio/</loc>
     <lastmod>2019-09-04T20:29:58+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.matt-h.dev/portfolio/</loc>
+    <loc>https://www.matt-h.dev/</loc>
     <lastmod>2019-09-04T20:29:58+01:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -28,21 +29,18 @@
   </url>
   
   <url>
-    <loc>https://www.matt-h.dev/posts/chatbot/</loc>
-    <lastmod>2019-01-29T19:39:41+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.matt-h.dev/posts/</loc>
-    <lastmod>2019-01-29T19:39:41+00:00</lastmod>
+    <loc>https://www.matt-h.dev/blog/</loc>
+    <lastmod>2017-10-31T22:27:21-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.matt-h.dev/categories/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.matt-h.dev/tags/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>

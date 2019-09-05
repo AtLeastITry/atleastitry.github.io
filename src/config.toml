@@ -1,64 +1,174 @@
-baseurl = "https://www.matt-h.dev"
-title = "matt-h.dev"
-theme = "hugo-coder"
-languagecode = "en"
-defaultcontentlanguage = "en"
+# Site settings
+baseURL = "https://www.matt-h.dev/"
+languageCode = "en-us"
+title = "matt-h"
+theme = "forty"
 publishDir = "../docs/"
 
-paginate = 20
-canonifyurls = true
+# Enter your tracking code to enable Google Analytics
+googleAnalytics = ""
 
-pygmentsstyle = "bw"
-pygmentscodefences = true
-pygmentscodefencesguesssyntax = true
-
-disqusShortname = "https-www-matt-h-dev"
+# Enter your disqus shortname to enable comments
+disqusShortname = ""
 
 [params]
-    author = "Matt Hope"
-    info = "C# web developer"
-    description = "Matt Hope's personal website"
-    keywords = "blog,developer,personal"
-    avatarurl = "https://secure.gravatar.com/avatar/de42758104f0d52ffe420d0173085037?s=400"
+  # You can use Markdown syntax for urls [text](//url.to/source)
+  # To create multi-line text in strings use the """example Text""" format
+  #
+  # All icons using Fontawesome's icon font. Look at fontawesome.io/icons
+  # for more icons. The icons are represented by their corresponding
+  # CSS class.
 
-    favicon_32 = "/img/favicon-32x32.png"
-    favicon_16 = "/img/favicon-16x16.png"
+  # Provide your metadata here.
+  name = "Your name"
+  description = "Your description"
 
-    footercontent = ""
+  # Link custom assets relative to /static
+  custom_css = []
+  custom_js  = []
+  favicon    = "favicon.ico"
 
-    hidecredits = false
-    hidecopyright = false
+  # Just a custom image variable, please define it in .md files for content.
+  image = ""
 
-    rtl = false
+  # 404 error customization
+  [params.error404]
+    heading = "Page couldn't be found"
+    text = "Please visit [this page](/)"
 
-    math = true
-    custom_css = ["css/custom.css"]
+  # Navigation Section
+  [params.navigation]
+    title = "matt-h"
+    menu = "Menu"
+    # Optional logo as brand stored in img/
+    # logo = "logo.png"
 
-# Social links
-[[params.social]]
-    name = "Github"
-    icon = "fab fa-github fa-2x"
-    weight = 1
-    url = "https://github.com/AtLeastITry"
+    [[params.navigation.links]]
+      name = "Home"
+      url = "#"
 
-# Menu links
-[[menu.main]]
-    name = "Blog"
-    weight = 1
-    url  = "/posts/"
-[[menu.main]]
-    name = "About"
-    weight = 2
-    url = "/about/"
-[[menu.main]]
-    name = "Career"
-    weight = 3
-    url = "/career/"
-[[menu.main]]
-    name = "Portfolio"
-    weight = 4
-    url = "/portfolio/"
-[[menu.main]]
-    name = "Contact"
-    weight = 5
-    url = "/contact/"
+    [[params.navigation.links]]
+      name = "Blog"
+      url = "blog"
+
+    [[params.navigation.links]]
+      name = "career"
+      url = "career"
+
+
+  # Banner section
+  [params.banner]
+    # To change the background image on the homepage banner, replace 'banner.jpg' in
+    # the 'static/img' folder.
+    title = "Hi, my name is Matt"
+    subtitle = "A c# Web developer"
+    buttonText = "Portfolio"
+
+
+  # Tiles Section
+  [params.tiles]
+    enable = true
+    # Display your showcases here.
+    
+    [[params.tiles.showcase]]
+      title = "Sound it out"
+      subtitle = "Audio book portal"
+      image = "sounditout_logo.svg"
+      url = "https://www.sound-it-out.com/"
+
+    [[params.tiles.showcase]]
+      title = "Clipboard"
+      subtitle = "Document text extractor"
+      image = "pic02.jpg"
+      url = "https://github.com/clipboard-org/clipboard"
+
+    [[params.tiles.showcase]]
+      title = "SSLEngine"
+      subtitle = "OpenSSL Wrapper"
+      image = "pic03.jpg"
+      url = "https://github.com/AtLeastITry/sslengine"
+
+    [[params.tiles.showcase]]
+      title = "Chatbot"
+      subtitle = "ML based chatbot"
+      image = "pic04.jpg"
+      url = "https://github.com/AtLeastITry/seq2seq-keras-chatBot"
+
+    [[params.tiles.showcase]]
+      title = "Blocker"
+      subtitle = "Multiplayer turn based board game"
+      image = "pic05.jpg"
+      url = "https://github.com/AtLeastITry/Blocker"
+
+    [[params.tiles.showcase]]
+      title = "APC"
+      subtitle = "ANTLR python compiler"
+      image = "pic06.jpg"
+      url = "https://github.com/AtLeastITry/antlr-python-compiler"
+    # You can make more showcases by copy and pasting the code above
+
+  [params.blog]
+    # All blogs defined in their own files. You can find example blogs
+    # at 'exampleSite/content/blogs'. Copy the 'blogs' folder into the 'content' directory
+    # at the root of this Hugo site.
+    # For more informtion take a look at the README.
+    # To add more blogs just copy and paste the code.
+
+  # Section Type Two
+  [params.two]
+    enable = true
+    title = "Massa libero"
+    subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
+    Mauris aliquet magna magna sed nunc rhoncus pharetra. 
+    Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. 
+    Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero.
+    Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus."""
+    buttonText = "Get Started"
+    url = "blogs"
+
+
+  # Contact section
+  [params.contact]
+    enable = true
+    buttonSend = "Send message"
+    buttonClear = "Clear"
+
+    # Since this template is static, the contact form uses www.formspree.io as a
+    # proxy. The form makes a POST request to their servers to send the actual
+    # email. Visitors can send up to a 1000 emails each month for free.
+    #
+    # What you need to do for the setup?
+    #
+    # - set your email address under 'email' below and uncomment
+    # - upload the generated site to your server
+    # - send a dummy email yourself to confirm your account
+    # - click the confirm link in the email from www.formspree.io
+    # - you're done. Happy mailing!
+    # formEmail = "matthew.hope396@outlook.com"
+
+    # Contact Section
+    # You can add multiple emails, phone numbers, or addresses
+    # by copying the corresponding map with frontmatter code.
+    [[params.contact.email]]
+    title = "Email"
+    email = "matthew.hope396@outlook.com"
+
+  # Footer section
+  [params.footer]
+    enable = true
+    copyright = "matt-h"
+
+    [[params.footer.social]]
+      icon = "fa-facebook"
+      url= "https://www.facebook.com"
+      label = "Facebook"
+    
+    [[params.footer.social]]
+      icon = "fa-github"
+      url= "https://github.com/AtLeastITry"
+      label = "GitHub"
+
+    [[params.footer.social]]
+      icon = "fa-linkedin"
+      url= "https://www.linkedin.com"
+      label = "LinkedIn"
