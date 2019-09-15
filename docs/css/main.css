@@ -3988,3 +3988,13 @@
 			opacity: 1;
 			visibility: visible;
 		}
+
+.cc-revoke, 
+.cc-window {
+	font-family: "Source Sans Pro", Helvetica, sans-serif !important;
+}
+
+.cc-link {
+	padding: 0 .2em !important;
+	text-decoration: none !important;
+}
