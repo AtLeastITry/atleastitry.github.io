@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>matt-h</title>
@@ -6,7 +6,7 @@
     <description>Recent content on matt-h</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Sep 2019 20:29:58 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 09 May 2019 18:28:45 +0000</lastBuildDate>
     
 	<atom:link href="https://www.matt-h.dev/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,10 +17,10 @@
       <pubDate>Wed, 04 Sep 2019 20:29:58 +0100</pubDate>
       
       <guid>https://www.matt-h.dev/portfolio/</guid>
-      <description>Sound it outOnline portal to generate audio books from documents
+      <description>HostlyA dot net core stlye host for Xamarin apps
+Sound it outOnline portal to generate audio books from documents
 ClipboardA c# library that provides the ability to extract text from various document file formats
-SSLEngineA c# library that provides the ability to execute OpenSSL commands
-ANTLR python compilerCustom language compiler built in java that generates python using ANTLR4</description>
+SSLEngineA c# library that provides the ability to execute OpenSSL commands</description>
     </item>
     
     <item>
@@ -40,10 +40,9 @@ Setting up GitHub Pages Step 1 - Create a new repository First, we need to creat
       <pubDate>Wed, 30 Jan 2019 22:04:11 +0000</pubDate>
       
       <guid>https://www.matt-h.dev/career/</guid>
-      <description>Degree apprenticeUniversity of essexWhilst in my role as a junior developer I was given the opportunity to enter a degree apprenticeship program.
-2016-10-12Juinior web developerAtlas Computer Systems LtdAfter successfully completing my apprenticeship I was promoted to junior.
-2015-07-21Apprentice web developerAtlas Computer Systems LtdThis was my introduction into the world of programming.
-2014-07-21 </description>
+      <description>Software consultantAtlas Computer Systems LtdAfter working in a graduate developer position for a short while i was then promomoted to software consultant for a more client facing position.
+2020-03-01Graduate software developerAtlas Computer Systems LtdAfter successfully securing a First Class (Hons.) Bsc Computer Science degree I was promoted to a graduate developer.
+2019-09-01Degree apprenticeUniversity of essexWhilst in my role as a junior developer I was given the opportunity to enter a degree apprenticeship program.</description>
     </item>
     
     <item>
@@ -52,7 +51,7 @@ Setting up GitHub Pages Step 1 - Create a new repository First, we need to creat
       <pubDate>Tue, 29 Jan 2019 20:16:47 +0000</pubDate>
       
       <guid>https://www.matt-h.dev/contact/</guid>
-      <description>      </description>
+      <description></description>
     </item>
     
     <item>

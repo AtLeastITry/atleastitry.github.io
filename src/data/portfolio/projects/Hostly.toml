@@ -1,0 +1,4 @@
+order = 0
+title = "Hostly"
+description = "A dot net core stlye host for Xamarin apps"
+repo_url = "https://github.com/hostly-org/hostly"

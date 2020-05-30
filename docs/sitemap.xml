@@ -1,11 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://www.matt-h.dev/</loc>
-    <lastmod>2019-09-04T20:29:58+01:00</lastmod>
-  </url>
   
   <url>
     <loc>https://www.matt-h.dev/portfolio/</loc>
@@ -24,6 +19,11 @@
   
   <url>
     <loc>https://www.matt-h.dev/categories/how-to/</loc>
+    <lastmod>2019-05-09T18:28:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.matt-h.dev/</loc>
     <lastmod>2019-05-09T18:28:45+00:00</lastmod>
   </url>
   

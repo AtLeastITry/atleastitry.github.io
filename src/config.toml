@@ -61,7 +61,7 @@ disqusShortname = ""
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
     title = "Hi, my name is Matt"
-    subtitle = "I'm a full stack engineer"
+    subtitle = "I'm a software consultant"
     buttonText = "Portfolio"
 
 
@@ -70,6 +70,12 @@ disqusShortname = ""
     enable = true
     # Display your showcases here.
     
+    [[params.tiles.showcase]]
+      title = "Hostly"
+      subtitle = "Net core style host for Xamarin apps"
+      image = "placeholder.svg"
+      url = "https://github.com/hostly-org/hostly"
+
     [[params.tiles.showcase]]
       title = "Sound it out"
       subtitle = "Audio book portal"
@@ -118,7 +124,7 @@ disqusShortname = ""
   [params.two]
     enable = true
     title = "About me"
-    subtitle = """I've had a passion for programming since I can remember and have always been keen to keep up to date with the latest technology and trends. I’ve been working as a web developer for the last 5 years and have recently acquired an interest in the field of machine learning."""
+    subtitle = """I've had a passion for programming since I can remember and have always been keen to keep up to date with the latest technology and trends. I’ve been working in the industry as a developer (now consultant) for the last 6 years and have recently acquired an interest in the field of machine learning."""
     buttonText = "Blog"
     url = "blog"
 
