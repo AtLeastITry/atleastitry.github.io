@@ -166,7 +166,7 @@ disqusShortname = ""
     copyright = "matt-h"
 
     [[params.footer.social]]
-      icon = "fa-facebook"
+      icon = "fa-facebook-f"
       url= "https://www.facebook.com/matthew.hope.921"
       label = "Facebook"
     
@@ -179,3 +179,8 @@ disqusShortname = ""
       icon = "fa-linkedin"
       url= "https://www.linkedin.com/in/matt-hope/"
       label = "LinkedIn"
+
+    [[params.footer.social]]
+      icon = "fa-dev"
+      url= "https://dev.to/atleastitry"
+      label = "Dev"
