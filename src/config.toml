@@ -111,6 +111,11 @@ disqusShortname = ""
       subtitle = "ANTLR python compiler"
       image = "placeholder.jpg"
       url = "https://github.com/AtLeastITry/antlr-python-compiler"
+    [[params.tiles.showcase]]
+      title = "Xamarin template"
+      subtitle = "A template for building xamarin apps using all of the goodness .NetCore provides"
+      image = "placeholder.jpg"
+      url = "https://github.com/AtLeastITry/xamarin-template"
     # You can make more showcases by copy and pasting the code above
 
   [params.blog]
