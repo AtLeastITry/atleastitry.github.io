@@ -13,7 +13,7 @@ With the use of GitHub pages and Cloudflare, it is very possible to host your ow
 
 - A GitHub account (register [here](https://github.com/join))
 - A CloudFlare account (register [here](https://dash.cloudflare.com/sign-up))
-- An installation of [Hugo](https://gohugo.io/getting-started/installing/) (Optional)
+- An installation of [Hugo](https://gohugo.io/getting-started/installing/) (Optional, this was my choice of static site generators)
 
 Once you have signed up to both of the services the first thing to do is create yourself a new GitHub repository
 

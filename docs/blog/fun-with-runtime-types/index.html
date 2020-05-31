@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Your description">
+	<meta name="author" content="Your name">
+	<meta name="generator" content="Hugo 0.71.1" />
+	<title>Having fun with .Net&#39;s System.Reflection.Emit &middot; matt-h</title>
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="https://www.matt-h.dev/css/main.css"/>
+	
+	
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+	
+	
+
+	<!-- Custom Fonts -->
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://www.matt-h.dev/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://www.matt-h.dev/favicon.ico">
+	
+
+	<script src="https://kit.fontawesome.com/d8f120bd35.js" crossorigin="anonymous"></script>
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://www.matt-h.dev/" class="logo"><strong>matt-h</strong> <span></span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://www.matt-h.dev/">Home</a></li>
+            
+                <li><a href="https://www.matt-h.dev/blog">Blog</a></li>
+            
+                <li><a href="https://www.matt-h.dev/career">career</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major blog-title">
+                                <h1>Having fun with .Net&#39;s System.Reflection.Emit</h1>
+                            </header>
+                            
+                            <p>I recently decided to undertake some interesting work around building a library .Net Core style host builder for Xamarin apps. As part of that work I encountered a strange hurdle. Essentially, I needed to define a brand new type that extended a base class and implemented an interface&hellip;all at runtime. At first, it seemed better to completely avoid this scenario; however, in the goal of complete simplicitly and readability of the end-user code needed for this library, I decided to tackle this challenge head on!</p>
+<p><strong>Step 1 - To actually define a type at runtime&hellip;</strong>
+The first task was of course to actually build this mysterious type at runtime. Luckily <a href="https://docs.microsoft.com/en-us/dotnet/api/system.reflection.emit?view=netcore-3.1">System.Reflection.Emit</a> has us covered. This assembly allows us to generate in-memory assemblies and take use of the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.reflection.emit.typebuilder?view=netcore-3.1">TypeBuilder</a>. To generate a simple type looks something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> Type GenerateType() 
+{
+   <span style="color:#75715e">// Build the dynamic assembly
+</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">var</span> assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(<span style="color:#e6db74">&#34;SuperFancyAssembly&#34;</span>, AssemblyBuilderAccess.Run);
+
+   <span style="color:#75715e">// Build the dynamic type
+</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">var</span> typeBuilder = assemblyBuilder.DefineDynamicModule(<span style="color:#e6db74">&#34;SuperFancyModule&#34;</span>)
+        .DefineType(<span style="color:#e6db74">$&#34;SuperFancyType&#34;</span>);
+
+   <span style="color:#66d9ef">return</span> typeBuilder.CreateTypeInfo();
+}
+
+</code></pre></div><p><strong>Step 2 - Inherit the base class and implement the interface</strong>
+Of course, generating a type is all fine and dandy but it is not quite as fun if we do not inherit a class or implement an interface. Doing that is actually much simpler than it sounds. Take a look:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> Type GenerateType() 
+{
+   <span style="color:#75715e">// Build the dynamic assembly
+</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">var</span> assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(<span style="color:#e6db74">&#34;SuperFancyAssembly&#34;</span>, AssemblyBuilderAccess.Run);
+   <span style="color:#75715e">// Build the dynamic type
+</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">var</span> typeBuilder = assemblyBuilder.DefineDynamicModule(<span style="color:#e6db74">&#34;SuperFancyModule&#34;</span>)
+        .DefineType(<span style="color:#e6db74">$&#34;SuperFancyType&#34;</span>);
+
+   <span style="color:#75715e">// Add the interface implementation
+</span><span style="color:#75715e"></span>   typeBuilder.AddInterfaceImplementation(<span style="color:#66d9ef">typeof</span>(ISuperFancyInterface));
+
+   <span style="color:#75715e">// Inherit the base class
+</span><span style="color:#75715e"></span>   typeBuilder.SetParent(<span style="color:#66d9ef">typeof</span>(SuperFancyBaseClass));
+
+   <span style="color:#66d9ef">return</span> typeBuilder.CreateTypeInfo();
+}
+
+</code></pre></div><p><strong>Step 3 - Inject IL to generate pass-through constructors (The worst bit)</strong>
+This is where things get a little bit more complicated.The first thing we need to do is to copy over the constructors from our <code>SuperFancyBaseClass</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#75715e">// Get all of the constructors from the SuperFancyBaseClass type
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> constructors = <span style="color:#66d9ef">typeof</span>(SuperFancyBaseClass).GetConstructors(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+<span style="color:#75715e">// Loop through each constructor
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">foreach</span> (<span style="color:#66d9ef">var</span> constructor <span style="color:#66d9ef">in</span> constructors)
+{
+   <span style="color:#75715e">// Get all of the parameters from the constructor
+</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">var</span> parameters = constructor.GetParameters();
+
+   <span style="color:#75715e">// Get all of the types from parameters
+</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">var</span> parameterTypes = parameters.Select(p =&gt; p.ParameterType).ToArray();
+   
+   <span style="color:#75715e">// Build the new constructor on the new type we are creating
+</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">var</span> newConstructor = typeBuilder.DefineConstructor(MethodAttributes.Public, constructor.CallingConvention, parameterTypes);
+
+   <span style="color:#75715e">// Loop through each parameter in the constructor
+</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> i = <span style="color:#ae81ff">0</span>; i &lt; parameters.Length; ++i)
+   {
+      <span style="color:#66d9ef">var</span> parameter = parameters[i];
+      <span style="color:#75715e">// Define the parameter
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">var</span> parameterBuilder = newConstructor.DefineParameter(i + <span style="color:#ae81ff">1</span>, parameter.Attributes, parameter.Name);
+   }
+}
+</code></pre></div><p>Now we have defined the constructors, we need to generate the IL to call into our base constructors:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#75715e">// Get the IL generator from the new constructor we defined earlier
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> emitter = newConstructor.GetILGenerator();
+emitter.Emit(OpCodes.Nop);
+
+<span style="color:#75715e">// Load `this` and call base constructor with arguments
+</span><span style="color:#75715e"></span>emitter.Emit(OpCodes.Ldarg_0);
+<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> i = <span style="color:#ae81ff">1</span>; i &lt;= parameters.Length; ++i)
+{
+    emitter.Emit(OpCodes.Ldarg, i);
+}
+emitter.Emit(OpCodes.Call, constructor);
+
+emitter.Emit(OpCodes.Ret);
+</code></pre></div><p>Once we put it all together it should look something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> Type GenerateType() 
+{
+   <span style="color:#75715e">// Build the dynamic assembly
+</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">var</span> assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(<span style="color:#e6db74">&#34;SuperFancyAssembly&#34;</span>, AssemblyBuilderAccess.Run);
+   <span style="color:#75715e">// Build the dynamic type
+</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">var</span> typeBuilder = assemblyBuilder.DefineDynamicModule(<span style="color:#e6db74">&#34;SuperFancyModule&#34;</span>)
+        .DefineType(<span style="color:#e6db74">$&#34;SuperFancyType&#34;</span>);
+
+   <span style="color:#75715e">// Add the interface implementation
+</span><span style="color:#75715e"></span>   typeBuilder.AddInterfaceImplementation(<span style="color:#66d9ef">typeof</span>(ISuperFancyInterface));
+
+   <span style="color:#75715e">// Inherit the base class
+</span><span style="color:#75715e"></span>   typeBuilder.SetParent(<span style="color:#66d9ef">typeof</span>(SuperFancyBaseClass));
+
+   <span style="color:#75715e">// Get all of the constructors from the SuperFancyBaseClass type
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> constructors = <span style="color:#66d9ef">typeof</span>(SuperFancyBaseClass).GetConstructors(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+    <span style="color:#75715e">// Loop through each constructor
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">foreach</span> (<span style="color:#66d9ef">var</span> constructor <span style="color:#66d9ef">in</span> constructors)
+    {
+        <span style="color:#75715e">// Get all of the parameters from the constructor
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">var</span> parameters = constructor.GetParameters();
+
+        <span style="color:#75715e">// Get all of the types from parameters
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">var</span> parameterTypes = parameters.Select(p =&gt; p.ParameterType).ToArray();
+        
+        <span style="color:#75715e">// Build the new constructor on the new type we are creating
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">var</span> newConstructor = typeBuilder.DefineConstructor(MethodAttributes.Public, constructor.CallingConvention, parameterTypes);
+
+        <span style="color:#75715e">// Loop through each parameter in the constructor
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> i = <span style="color:#ae81ff">0</span>; i &lt; parameters.Length; ++i)
+        {
+            <span style="color:#66d9ef">var</span> parameter = parameters[i];
+            <span style="color:#75715e">// Define the parameter
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">var</span> parameterBuilder = newConstructor.DefineParameter(i + <span style="color:#ae81ff">1</span>, parameter.Attributes, parameter.Name);
+        }
+
+        <span style="color:#75715e">// Get the IL generator from the new constructor we defined earlier
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">var</span> emitter = newConstructor.GetILGenerator();
+        emitter.Emit(OpCodes.Nop);
+
+        <span style="color:#75715e">// Load `this` and call base constructor with arguments
+</span><span style="color:#75715e"></span>        emitter.Emit(OpCodes.Ldarg_0);
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> i = <span style="color:#ae81ff">1</span>; i &lt;= parameters.Length; ++i)
+        {
+            emitter.Emit(OpCodes.Ldarg, i);
+        }
+        emitter.Emit(OpCodes.Call, constructor);
+
+        emitter.Emit(OpCodes.Ret);
+    }
+
+   <span style="color:#66d9ef">return</span> typeBuilder.CreateTypeInfo();
+}
+</code></pre></div><p>And there you have it! We just defined our own type, implemented an interface, inherited a base class, defined a constructor and called the base constructor all at runtime.</p>
+<p>Click <a href="https://github.com/hostly-org/hostly/blob/master/src/Hostly/XamarinApplicationBuilder.cs">here</a> for the source code in action</p>
+<p>TLDR: I needed to implement an interface to an existing class at runtime, which required some fun with dynamic assemblies and IL generation</p>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="https://www.facebook.com/matthew.hope.921" class="icon alt fa-facebook-f" target="_blank"><span class="label">Facebook</span></a></li>
+                
+                    <li><a href="https://github.com/AtLeastITry" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://www.linkedin.com/in/matt-hope/" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                
+                    <li><a href="https://dev.to/atleastitry" class="icon alt fa-dev" target="_blank"><span class="label">Dev</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; matt-h</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://www.matt-h.dev/js/jquery.min.js"></script>
+    <script src="https://www.matt-h.dev/js/jquery.scrolly.min.js"></script>
+    <script src="https://www.matt-h.dev/js/jquery.scrollex.min.js"></script>
+    <script src="https://www.matt-h.dev/js/skel.min.js"></script>
+    <script src="https://www.matt-h.dev/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://www.matt-h.dev/js/main.js"></script>
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+    <script>
+    window.cookieconsent.initialise({
+    "palette": {
+        "popup": {
+        "background": "#2a2f4a",
+        "text": "#ffffff"
+        },
+        "button": {
+        "background": "#ffffff"
+        }
+    }
+    });
+    </script>
+
+    </body>
+</html>

@@ -73,7 +73,7 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "Hostly"
       subtitle = "Net core style host for Xamarin apps"
-      image = "placeholder.svg"
+      image = "hostly_logo.svg"
       url = "https://github.com/hostly-org/hostly"
 
     [[params.tiles.showcase]]

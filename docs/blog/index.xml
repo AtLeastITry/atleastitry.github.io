@@ -12,14 +12,22 @@
     
     
     <item>
+      <title>Having fun with .Net&#39;s System.Reflection.Emit</title>
+      <link>https://www.matt-h.dev/blog/fun-with-runtime-types/</link>
+      <pubDate>Sun, 31 May 2020 19:08:06 +0100</pubDate>
+      
+      <guid>https://www.matt-h.dev/blog/fun-with-runtime-types/</guid>
+      <description>I recently decided to undertake some interesting work around building a library .Net Core style host builder for Xamarin apps. As part of that work I encountered a strange hurdle. Essentially, I needed to define a brand new type that extended a base class and implemented an interface&amp;hellip;all at runtime. At first, it seemed better to completely avoid this scenario; however, in the goal of complete simplicitly and readability of the end-user code needed for this library, I decided to tackle this challenge head on!</description>
+    </item>
+    
+    <item>
       <title>Free hosting with GitHub pages</title>
       <link>https://www.matt-h.dev/blog/free-hosting/</link>
       <pubDate>Thu, 09 May 2019 18:28:45 +0000</pubDate>
       
       <guid>https://www.matt-h.dev/blog/free-hosting/</guid>
       <description>With the use of GitHub pages and Cloudflare, it is very possible to host your own static website over HTTPS for free. However, there are a few pre-requisites:
- A GitHub account (register here) A CloudFlare account (register here) An installation of Hugo (Optional)  Once you have signed up to both of the services the first thing to do is create yourself a new GitHub repository
-Setting up GitHub Pages Step 1 - Create a new repository First, we need to create a new GitHub repository, use a name with the following naming convention: &amp;lt;your username/organisation&amp;gt;.</description>
+ A GitHub account (register here) A CloudFlare account (register here) An installation of Hugo (Optional, this was my choice of static site generators)  Once you have signed up to both of the services the first thing to do is create yourself a new GitHub repository</description>
     </item>
     
   </channel>
