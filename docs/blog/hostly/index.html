@@ -1,5 +1,6 @@
+<!DOCTYPE HTML>
 <html>
-<!-- Header -->
+
     <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,7 @@
 	<meta name="description" content="Your description">
 	<meta name="author" content="Your name">
 	<meta name="generator" content="Hugo 0.71.1" />
-	<title>Blog &middot; matt-h</title>
+	<title>.Net core host builder for Xamarin? Yes please! &middot; matt-h</title>
 	<!-- Stylesheets -->
 	
 	<link rel="stylesheet" href="https://www.matt-h.dev/css/main.css"/>
@@ -34,13 +35,12 @@
 	<![endif]-->
 </head>
 
-
     <body>
 
     <!-- Wrapper -->
         <div id="wrapper">
 
-        <!-- Header -->
+            <!-- Header -->
     <header id="header" class="alt">
         <a href="https://www.matt-h.dev/" class="logo"><strong>matt-h</strong> <span></span></a>
         <nav>
@@ -67,78 +67,39 @@
     </nav>
 
         <!-- Main -->
-            <div id="main">
+            <div id="main" class="alt">
 
-                <section id="banner" class="style2">
-                    <div class="inner">
-			
-                        <span class="image">
-                            <img src="/img/pic02.jpg" alt="" />
-                        </span>
-			
-                        <header class="major">
-                            <h1>Blog</h1>
-                        </header>
-                        <div class="content">
-                            <p>Blog</p>
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major blog-title">
+                                <h1>.Net core host builder for Xamarin? Yes please!</h1>
+                            </header>
+                            
+                            <p>This year I decided to embark on the journey of developing a .Net Core style host builder for Xamarin. I had previously seen examples using the <code>HostBuilder</code> provided by the .Net Core framework. While this approach was perfectly fine and works as intended, I found myself wanting something a little more integrated with Xamarin. Enter <a href="https://github.com/hostly-org/hostly">Hostly</a>, a framework that provides end-users with a custom <code>Ihost</code> tailored to <code>Xamarin.Forms</code>. It&rsquo;s as simple as running a few lines of code in your entry class (<code>FormsAppCompatActivity</code> in Android, or <code>FormsApplicationDelegate</code> in iOS):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">new</span> XamarinHostBuilder().UseApplication&lt;App&gt;()
+.UsePlatform(<span style="color:#66d9ef">this</span>)
+.Build()
+.StartAsync();
+</code></pre></div><p>Using Hostly opens up access to a rich set of useful features when developing a Xamarin app. A few of those being:</p>
+<ul>
+<li>Navigation Middleware</li>
+<li>Lifecycle Middleware (In progress)</li>
+<li>Dependency Injection</li>
+<li>EF.Core</li>
+<li>Hosted services</li>
+</ul>
+<p>Try it out for yourself <a href="https://github.com/hostly-org/hostly">here</a></p>
 
-                        </div>
-                    </div>
-                </section>
-
-                <section id="two" class="spotlights">
-                    
-                    <section>
-                        
-                        <div class="content">
-                            <div class="inner">
-                                <header class="major">
-                                    <h3>.Net core host builder for Xamarin? Yes please!</h3>
-                                </header>
-                                <p></p>
-                                <ul class="actions">
-                                    <li><a href="https://www.matt-h.dev/blog/hostly/" class="button">Learn more</a></li>
-                                </ul>
-                            </div>
                         </div>
                     </section>
-                    
-                    <section>
-                        
-                        <div class="content">
-                            <div class="inner">
-                                <header class="major">
-                                    <h3>Having fun with .Net&#39;s System.Reflection.Emit</h3>
-                                </header>
-                                <p>Using System.Reflection.Emit to generate types at runtime</p>
-                                <ul class="actions">
-                                    <li><a href="https://www.matt-h.dev/blog/fun-with-runtime-types/" class="button">Learn more</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-                    
-                    <section>
-                        
-                        <div class="content">
-                            <div class="inner">
-                                <header class="major">
-                                    <h3>Free hosting with GitHub pages</h3>
-                                </header>
-                                <p>How to host your static site securely for free with GitHub pages and Cloudflare</p>
-                                <ul class="actions">
-                                    <li><a href="https://www.matt-h.dev/blog/free-hosting/" class="button">Learn more</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-                    
-                </section>
+            <!-- Disqus Inject -->
+                
             </div>
             
         <!-- Footer -->
-			
-				<!-- Footer -->
+            
+                <!-- Footer -->
     <footer id="footer">
         <div class="inner">
             <ul class="icons">
@@ -160,7 +121,6 @@
     </footer>
 
             
-        
         </div>
 
     <!-- Scripts -->
@@ -194,6 +154,6 @@
     }
     });
     </script>
-        
+
     </body>
 </html>

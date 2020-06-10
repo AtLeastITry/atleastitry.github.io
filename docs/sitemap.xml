@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.matt-h.dev/blog/hostly/</loc>
+    <lastmod>2020-06-10T16:36:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.matt-h.dev/</loc>
+    <lastmod>2020-06-10T16:36:14+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.matt-h.dev/categories/</loc>
     <lastmod>2020-05-31T19:08:06+01:00</lastmod>
   </url>
@@ -14,11 +24,6 @@
   
   <url>
     <loc>https://www.matt-h.dev/categories/how-to/</loc>
-    <lastmod>2020-05-31T19:08:06+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.matt-h.dev/</loc>
     <lastmod>2020-05-31T19:08:06+01:00</lastmod>
   </url>
   
