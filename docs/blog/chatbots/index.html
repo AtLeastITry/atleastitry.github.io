@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Your description">
+	<meta name="author" content="Your name">
+	<meta name="generator" content="Hugo 0.71.1" />
+	<title>Chatbots? My first machine learning experience &middot; matt-h</title>
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="https://www.matt-h.dev/css/main.css"/>
+	
+	
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+	
+	
+
+	<!-- Custom Fonts -->
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://www.matt-h.dev/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://www.matt-h.dev/favicon.ico">
+	
+
+	<script src="https://kit.fontawesome.com/d8f120bd35.js" crossorigin="anonymous"></script>
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://www.matt-h.dev/" class="logo"><strong>matt-h</strong> <span></span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://www.matt-h.dev/">Home</a></li>
+            
+                <li><a href="https://www.matt-h.dev/blog">Blog</a></li>
+            
+                <li><a href="https://www.matt-h.dev/career">career</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major blog-title">
+                                <h1>Chatbots? My first machine learning experience</h1>
+                            </header>
+                            
+                            <p>During my final year at university, I decided to take a leap of faith and dive straight into the world of ML (Machine Learning) and data science. Without any prior knowledge, I thought, what better way to learn a new topic than to base my final year dissertation on it&hellip;Now at first, this might seem like a stupid idea, especially when considering the weight it has on my overall grade. But after the 5-6 years I’ve spent working in the software development industry, I’ve found that I learn best when I’m under pressure.</p>
+<p>Now onto the good stuff. I decided to go ahead and set myself the challenge of making my computer talk, which is to develop a chatbot purely using the techniques of ML. Of course, I first needed to actually find something substantial to base my thesis on, I went ahead and decided to “Solve the problem with modern chatbots”.</p>
+<h2 id="the-problem-with-chatbots">The problem with chatbots</h2>
+<p>Chatbots are usually described as either “open domain”, or “closed domain”. The former being a chatbot that has no specific focus and usually seen as a general discussion bot. The latter being aimed at a specific domain, you’ll likely see this in the form of support bots on SaaS websites. I decided that this split down the middle needs to go, why not have a chatbot that can cross over the two worlds, say I want to have a chat with my friendly neighborhood bot, and also occasionally ask it for fitness tips and tutorials? I can’t do that with the current standards set in place, this kind of chatbot doesn’t fit into either category.</p>
+<p>I know this issue doesn’t seem overly important but it was a challenge nevertheless and I was determined to find a solution!</p>
+<h2 id="my-solution">My “solution”</h2>
+<p>Of course, I wanted to dip my toes into the wonderful world of ML so I went right ahead and did just that, after tons and tons of late nights researching I found an interesting approach to translation that I hadn’t seen before. The NTM (Neural Translation Machine), this a common technique used for multi-language translation, e.g. English to Spanish. Of course me being a bit naive at the time, decided that if translating one language to another using this technique is so easy, then translating one language back to itself couldn’t be much harder, right? Oh, was I wrong&hellip;the problem with this approach is that there is a countless number of acceptable replies when attempting to translate something like “hello, how are you?” back to the same language. Whereas this works perfectly fine when translating to another language as there will only ever be a small set of suitable translations.</p>
+<p>One of the main benefits to using a NTM in my attempt was that I could control exactly how it is trained, to do so I decided to use a variety of sources, anything from top comments and replies from some of the popular fitness subreddits to famous movie scripts. I wanted to give my chatbot a range of data allowing it to hold a general conversation whilst also having fitness-specific knowledge.</p>
+<p>Before getting into my implementation, it’s important to understand the basic concepts of the NTM. There are two core parts of the NTM, the encoder and decoder. The encoder takes in the input text and encodes it into a large matrix that can be read by the machine. The decoder then takes in this large matrix and attempts to decode it back to text. This is an extreme simplification of the NTM and it becomes far more complicated when looking into the real details of this model. However, that&rsquo;s not the purpose of this article and there are plenty of white papers explaining this concept much better than I ever could.</p>
+<p>After some more research, I went right ahead and started to implement my own NTM using Keras and Tensorflow. After developing the core parts of the NTM I found myself in a pretty awkward situation. I had more data to train the model than my hardware would allow. Luckily I managed to stumble across a wonderful feature in Keras that allows you to create your own “data generator”. This provided me with a way to drip feed my NTM the huge data set I had on disk without surpassing my hardware limitations.</p>
+<p>After developing and training my data, the next step was to provide a way for users to interact with the chatbot. Of course, coming from my web dev experience, I decided to create a web API that utilised my trained model. I also created a simple chatbot UI and baked it into another web project used as part of my dissertation to demonstrate my work.</p>
+<h2 id="what-needs-to-be-improved">What needs to be improved</h2>
+<p>The chatbot itself isn’t exactly “intelligent”, it can reply to most sentences but most of the replies end up being a jumble of words that are pure nonsense. This was purely my fault and due to the poor datasets I provided during the training phase. I found that the hardest part of this project wasn’t even to create the model and get it working, but was just about finding the right data to train my model with. If I was to go back and re-do this project, I’d make sure I spent more time researching the training data, as that seemed to be the key to success.</p>
+<p>Aside from everything else, this project made me realise that even though some areas of computer science might seem daunting when you have no experience in them, there is no harm in setting yourself a challenge, you might surprise yourself like i did.</p>
+<h2 id="try-it-yourself">Try it yourself!</h2>
+<p>I still have it hosted in azure alongside the web project I prototyped, if you’re interested the following links will be helpful:</p>
+<ul>
+<li><a href="https://github.com/AtLeastITry/seq2seq-keras-chatBot">https://github.com/AtLeastITry/seq2seq-keras-chatBot</a> (the source code)</li>
+<li><a href="https://ce601-chatbot.azurewebsites.net">https://ce601-chatbot.azurewebsites.net</a> (the web API)</li>
+<li><a href="https://ce601-ui.azurewebsites.net">https://ce601-ui.azurewebsites.net</a> (the web app)</li>
+</ul>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="https://www.facebook.com/matthew.hope.921" class="icon alt fa-facebook-f" target="_blank"><span class="label">Facebook</span></a></li>
+                
+                    <li><a href="https://github.com/AtLeastITry" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://www.linkedin.com/in/matt-hope/" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                
+                    <li><a href="https://dev.to/atleastitry" class="icon alt fa-dev" target="_blank"><span class="label">Dev</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; matt-h</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://www.matt-h.dev/js/jquery.min.js"></script>
+    <script src="https://www.matt-h.dev/js/jquery.scrolly.min.js"></script>
+    <script src="https://www.matt-h.dev/js/jquery.scrollex.min.js"></script>
+    <script src="https://www.matt-h.dev/js/skel.min.js"></script>
+    <script src="https://www.matt-h.dev/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://www.matt-h.dev/js/main.js"></script>
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+    <script>
+    window.cookieconsent.initialise({
+    "palette": {
+        "popup": {
+        "background": "#2a2f4a",
+        "text": "#ffffff"
+        },
+        "button": {
+        "background": "#ffffff"
+        }
+    }
+    });
+    </script>
+
+    </body>
+</html>

@@ -129,7 +129,7 @@ disqusShortname = ""
   [params.two]
     enable = true
     title = "About me"
-    subtitle = """I've had a passion for programming since I can remember and have always been keen to keep up to date with the latest technology and trends. I’ve been working in the industry as a developer (now consultant) for the last 6 years and have recently acquired an interest in the field of machine learning."""
+    subtitle = """I've had a passion for programming since I can remember and have always been keen to keep up to date with the latest technology and trends. I’ve been working in the industry as a developer (now consultant) for the last 6 years and have recently acquired an interest in the fields of machine learning and quantum computing. I like to spend my free time working on open source projects and writing articles"""
     buttonText = "Blog"
     url = "blog"
 

@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Your description">
+	<meta name="author" content="Your name">
+	<meta name="generator" content="Hugo 0.71.1" />
+	<title>Compilers - One of the more intimidating projects &middot; matt-h</title>
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="https://www.matt-h.dev/css/main.css"/>
+	
+	
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+	
+	
+
+	<!-- Custom Fonts -->
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://www.matt-h.dev/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://www.matt-h.dev/favicon.ico">
+	
+
+	<script src="https://kit.fontawesome.com/d8f120bd35.js" crossorigin="anonymous"></script>
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://www.matt-h.dev/" class="logo"><strong>matt-h</strong> <span></span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://www.matt-h.dev/">Home</a></li>
+            
+                <li><a href="https://www.matt-h.dev/blog">Blog</a></li>
+            
+                <li><a href="https://www.matt-h.dev/career">career</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major blog-title">
+                                <h1>Compilers - One of the more intimidating projects</h1>
+                            </header>
+                            
+                            <p>The terms “compiler” and “Intermediate language” used to be somewhat intimidating to me; that is until I decided to take on the challenge of building my very own compiler. Better yet, to make it a little bit more interesting, I also went ahead and developed it in Java, which is an unusual choice considering I primarily work in C#. Now, this challenge wasn’t so much a quick “look on Stack Overflow and get it done”. It required a lot of reading and research into just how compilers work. Most of my time was spent reading the “Dragon Book”, which, even though might be a bit outdated for the more modern compilers of today, possessed core concepts that are still very much relevant.</p>
+<p>Before we dive into the nitty-gritty of my journey, it is important to understand the basic structure of a compiler. I won’t go into full detail as we can save that for another time but the following are the core steps of a simple compiler:</p>
+<ol>
+<li>Lexical analysis - the compiler processes the source code and outputs a stream of tokens.</li>
+<li>Parser - the compiler processes the stream of characters and outputs a syntax tree.</li>
+<li>Intermediate code generator - the compiler processes the syntax tree and outputs some IL.</li>
+</ol>
+<h2 id="how-it-was-built">How it was built</h2>
+<p>After installing a useful “compiler-builder” framework called “ANTLR”, the first step was to generate my grammar. This grammar would define exactly how my custom language behaves. I decided to take a strongly typed approach to my language design much like C# as it provides a bit more security against those easy semantical bugs. We all know how confusing enterprise JavaScript projects can get. The full grammar can be found <a href="https://github.com/AtLeastITry/antlr-python-compiler/tree/master/src/main/antlr4">here</a>.</p>
+<p>The language I proposed looks a little something like this:</p>
+<pre><code>int b;
+b = factorial(8);
+int factorial(int n) {
+  int val;
+  int counter;
+  val = 1;
+  counter = 1;
+  while(counter &lt;= n) {
+    val = val * counter;
+    counter = counter + 1;
+  };
+  return val;
+};
+print(b);
+</code></pre><p>Once the grammar was complete, it was then time to use ANTLR to parse my source code using the grammar and generate an expression tree I could convert into my own AST (abstract syntax tree). Now, this wasn’t the most simple process but I followed the “visitor” pattern to walk through the expression tree one node at a time and then translated those nodes into my own AST. The code for the translation can be found <a href="https://github.com/AtLeastITry/antlr-python-compiler/blob/master/src/main/java/compiler/implementation/visitors/ParseVisitor.java">here</a>.</p>
+<p>Now having generated my own AST, the next logical step was to run a semantic analysis to check if there were any errors in the program code I was compiling. This might include errors such as attempting to set a string value to an integer or use a variable before it is declared. The code for the semantic analyzer can be found <a href="https://github.com/AtLeastITry/antlr-python-compiler/blob/master/src/main/java/compiler/implementation/visitors/SemanticAnalyser.java">here</a>.</p>
+<p>A little extra challenge I set myself was to allow the compiler to handle unbound declarations, meaning you can call a function before it is declared. Now, this required a bit more research but, in the end, I decided to tackle this problem with a simple dependency graph. My compiler generates the dependency graph after semantic analysis has occurred and then reorders the AST based on the dependencies it has graphed out. To reorder the AST, two pass-throughs must occur. In the first pass-through, the dependency graph is bound to the AST to ensure that all of the variable and function declarations are found. The dependency graph is then re-bound to the AST for the second pass-through to build up the dependencies to the variables and functions discovered in the first pass-through. The code for the dependency graph can be found <a href="https://github.com/AtLeastITry/antlr-python-compiler/blob/master/src/main/java/compiler/implementation/visitors/ASTDependencyRetriever.java">here</a>.</p>
+<p>At this point, we’re at the final (and probably easiest) step of my journey - walking the AST to generate something useful. Now, this was as simple as recursively walking each of the nodes using the visitor pattern I mentioned earlier.  I generated a number of “AST visitors”; the most interesting of those being a “Python visitor” which outputted the AST in executable Python code and a “DOT visitor” which outputted the AST in a DOT graph.</p>
+<p>The entire repo of the compiler can be found <a href="https://github.com/AtLeastITry/antlr-python-compiler">here</a></p>
+<h2 id="what-i-learned">What I learned</h2>
+<p>Building this compiler was no easy task but it gave me a much deeper understanding of the high-level languages we all take for granted. I, personally, had never seen myself having to worry about symbol tables and dependencies on a low language level. It makes you take a step back and appreciate the work done from some of the clever minds out there behind the popular compilers like Rosyln and Javac. It&rsquo;s an incredible rollercoaster of knowledge getting to understand exactly how the code we write daily gets compiled into machine code and executed. If I could have done anything differently, I would have avoided using ANTLR and, instead, created my own lexer and grammar parser. While ANTLR was great and helped me on this journey, I feel like I skipped some of the learning experiences that I could have gained. I also would have stuck with C#, as it is within my comfort zone. Java was fine but I just had a few minor issues with it, one being the lack of dynamic method overloading as it would have simplified the implementation of the AST Visitors.</p>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="https://www.facebook.com/matthew.hope.921" class="icon alt fa-facebook-f" target="_blank"><span class="label">Facebook</span></a></li>
+                
+                    <li><a href="https://github.com/AtLeastITry" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://www.linkedin.com/in/matt-hope/" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                
+                    <li><a href="https://dev.to/atleastitry" class="icon alt fa-dev" target="_blank"><span class="label">Dev</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; matt-h</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://www.matt-h.dev/js/jquery.min.js"></script>
+    <script src="https://www.matt-h.dev/js/jquery.scrolly.min.js"></script>
+    <script src="https://www.matt-h.dev/js/jquery.scrollex.min.js"></script>
+    <script src="https://www.matt-h.dev/js/skel.min.js"></script>
+    <script src="https://www.matt-h.dev/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://www.matt-h.dev/js/main.js"></script>
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+    <script>
+    window.cookieconsent.initialise({
+    "palette": {
+        "popup": {
+        "background": "#2a2f4a",
+        "text": "#ffffff"
+        },
+        "button": {
+        "background": "#ffffff"
+        }
+    }
+    });
+    </script>
+
+    </body>
+</html>

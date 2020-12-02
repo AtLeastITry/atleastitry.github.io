@@ -12,6 +12,24 @@
     
     
     <item>
+      <title>Chatbots? My first machine learning experience</title>
+      <link>https://www.matt-h.dev/blog/chatbots/</link>
+      <pubDate>Sun, 28 Jun 2020 16:36:14 +0100</pubDate>
+      
+      <guid>https://www.matt-h.dev/blog/chatbots/</guid>
+      <description>During my final year at university, I decided to take a leap of faith and dive straight into the world of ML (Machine Learning) and data science. Without any prior knowledge, I thought, what better way to learn a new topic than to base my final year dissertation on it&amp;hellip;Now at first, this might seem like a stupid idea, especially when considering the weight it has on my overall grade. But after the 5-6 years I’ve spent working in the software development industry, I’ve found that I learn best when I’m under pressure.</description>
+    </item>
+    
+    <item>
+      <title>Compilers - One of the more intimidating projects</title>
+      <link>https://www.matt-h.dev/blog/compilers/</link>
+      <pubDate>Sun, 21 Jun 2020 16:36:14 +0100</pubDate>
+      
+      <guid>https://www.matt-h.dev/blog/compilers/</guid>
+      <description>The terms “compiler” and “Intermediate language” used to be somewhat intimidating to me; that is until I decided to take on the challenge of building my very own compiler. Better yet, to make it a little bit more interesting, I also went ahead and developed it in Java, which is an unusual choice considering I primarily work in C#. Now, this challenge wasn’t so much a quick “look on Stack Overflow and get it done”.</description>
+    </item>
+    
+    <item>
       <title>.Net core host builder for Xamarin? Yes please!</title>
       <link>https://www.matt-h.dev/blog/hostly/</link>
       <pubDate>Wed, 10 Jun 2020 16:36:14 +0100</pubDate>
