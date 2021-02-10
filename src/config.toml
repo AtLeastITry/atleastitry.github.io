@@ -55,6 +55,11 @@ disqusShortname = ""
       name = "career"
       url = "career"
 
+    [[params.navigation.links]]
+      name = "Resume"
+      url = "/files/Matthew's Resume.pdf"
+      external = true
+
 
   # Banner section
   [params.banner]
@@ -184,3 +189,7 @@ disqusShortname = ""
       icon = "fa-dev"
       url= "https://dev.to/atleastitry"
       label = "Dev"
+
+    [[params.footer.extra]]
+      url= "https://www.codementor.io/@atleastitry?refer=badge"
+      img = "https://www.codementor.io/m-badges/atleastitry/im-a-cm-g.svg"
