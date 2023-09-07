@@ -1,4 +1,0 @@
-order = 5
-title = "Chatbot"
-description = "A chat bot developed using a seq2seq model"
-repo_url = "https://github.com/AtLeastITry/seq2seq-keras-chatBot"
