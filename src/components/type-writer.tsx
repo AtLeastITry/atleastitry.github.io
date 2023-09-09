@@ -1,0 +1,64 @@
+import { useSignal, effect, useComputed } from "@preact/signals";
+import { useEffect } from "preact/hooks";
+
+type TypeWriterProps = {
+  text: string;
+  delay?: number;
+  textSuffix?: string[];
+};
+
+export default function TypeWriter({ text, textSuffix, delay }: TypeWriterProps) {
+  const currentText = useSignal("");
+  const extraText = useSignal("");
+  const blinkCursor = useComputed(() =>
+    currentText.value.length === text.length && (textSuffix === undefined || textSuffix?.length < 1) ? (
+      <span class="animate-blink">|</span>
+    ) : (
+      <span>|</span>
+    ),
+  );
+
+  const wait = (ms: number) =>
+    new Promise((resolve) => setTimeout(resolve, ms));
+
+  useEffect(() => {
+
+    const writeSuffix = async () => {
+      if(textSuffix === undefined) return;
+
+      for (let i = 0; i < textSuffix.length; i++) {
+        for (let j = 0; j < textSuffix[i].length; j++) {
+          extraText.value = extraText.value + textSuffix[i][j];
+          await wait(delay ?? 100);
+        }
+
+        for (let j = extraText.value.length; j > 0; j--) {
+          extraText.value = extraText.value.slice(0, -1);
+          await wait(delay ?? 100);
+        }
+      }
+
+      writeSuffix();
+    }
+
+    const writeText = async () => {
+      for (let i = 0; i < text.length; i++) {
+        currentText.value = currentText.value + text[i];
+        await wait(delay ?? 80);
+      }
+
+      writeSuffix();
+    };
+
+    writeText();
+  }, []);
+
+  return (
+    <>
+      <span class="text-6xl text-white">
+        <span class="underline">{currentText}{extraText}</span>
+        {blinkCursor}
+      </span>
+    </>
+  );
+}

@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CareerEvent from "../components/career-event.astro";
+import TypeWriter from "../components/type-writer";
+
+const events = [
+  {
+    title: "Tech lead",
+    company: "Innovation Group Ltd",
+    description: "",
+    start: "2020-03-01",
+    end: "present",
+  },
+  {
+    title: "Senior full stack developer",
+    company: "Innovation Group Ltd",
+    description: "",
+    start: "2020-03-01",
+    end: "2020-03-01",
+  },
+  {
+    title: "Software consultant",
+    company: "Atlas Computer Systems Ltd - Fundipedia",
+    description:
+      "After working in a software developer position for a short while I was then promomoted to software consultant for a more client facing position.",
+    start: "2020-03-01",
+    end: "2020-03-01",
+  },
+  {
+    title: "Software developer",
+    company: "Atlas Computer Systems Ltd",
+    description:
+      "After successfully securing a First Class (Hons.) Bsc Computer Science degree I was promoted to a software developer.",
+    start: "2019-09-01",
+    end: "2020-03-01",
+  },
+  {
+    title: "Degree apprentice",
+    company: "Atlas Computer Systems Ltd/University of Essex",
+    description:
+      "Whilst in my role as a junior developer I was given the opportunity to enter a degree apprenticeship program. This required me to work my full-time job whilst also taking my full-time degree course (it was hard)",
+    start: "2016-10-12",
+    end: "2019-09-01",
+  },
+  {
+    title: "Juinior web developer",
+    company: "Atlas Computer Systems Ltd",
+    description:
+      "After successfully completing my apprenticeship I was promoted to junior.",
+    start: "2015-07-21",
+    end: "2016-10-12",
+  },
+  {
+    title: "Apprentice web developer",
+    company: "Atlas Computer Systems Ltd",
+    description: "This was my introduction into the world of programming.",
+    start: "2014-07-21",
+    end: "2015-07-21",
+  },
+];
+---
+
+<Layout title="Matt Hope">
+  <div class="mb-20 block block bg-indigo-600 px-20 pb-32">
+    <TypeWriter text="My career so far!" client:load />
+  </div>
+  {
+    events.map((event, i) => {
+      return <CareerEvent {...event} isFirst={i === 0} />;
+    })
+  }
+</Layout>
