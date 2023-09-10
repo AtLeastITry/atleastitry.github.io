@@ -3,18 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import TypeWriter from "../components/type-writer";
 ---
 
-<Layout title="Matt Hope">
-  <div class="block block bg-indigo-600 px-20 pb-32">
-    <TypeWriter
-      text="Hi, It's Matt! I'm a "
-      ,
-      textSuffix={[
-        "Tech lead...",
-        "Software developer...",
-        "Mentor...",
-        "Coding enthusiast...",
-      ]}
-      client:load
-    />
-  </div>
-</Layout>
+<Layout
+  title="Matt Hope"
+  header="Hi, It's Matt!"
+  headerSuffix={[
+    "I'm a Tech lead...",
+    "I'm a Software developer...",
+    "I'm a Mentor...",
+    "I'm a Coding enthusiast...",
+  ]}
+/>

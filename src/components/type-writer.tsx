@@ -2,16 +2,21 @@ import { useSignal, effect, useComputed } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 
 type TypeWriterProps = {
-  text: string;
+  text?: string;
   delay?: number;
   textSuffix?: string[];
 };
 
-export default function TypeWriter({ text, textSuffix, delay }: TypeWriterProps) {
+export default function TypeWriter({
+  text,
+  textSuffix,
+  delay,
+}: TypeWriterProps) {
   const currentText = useSignal("");
   const extraText = useSignal("");
   const blinkCursor = useComputed(() =>
-    currentText.value.length === text.length && (textSuffix === undefined || textSuffix?.length < 1) ? (
+    currentText.value.length === (text?.length ?? 0) &&
+    (textSuffix === undefined || textSuffix?.length < 1) ? (
       <span class="animate-blink">|</span>
     ) : (
       <span>|</span>
@@ -22,9 +27,8 @@ export default function TypeWriter({ text, textSuffix, delay }: TypeWriterProps)
     new Promise((resolve) => setTimeout(resolve, ms));
 
   useEffect(() => {
-
     const writeSuffix = async () => {
-      if(textSuffix === undefined) return;
+      if (textSuffix === undefined) return;
 
       for (let i = 0; i < textSuffix.length; i++) {
         for (let j = 0; j < textSuffix[i].length; j++) {
@@ -39,12 +43,14 @@ export default function TypeWriter({ text, textSuffix, delay }: TypeWriterProps)
       }
 
       writeSuffix();
-    }
+    };
 
     const writeText = async () => {
-      for (let i = 0; i < text.length; i++) {
-        currentText.value = currentText.value + text[i];
-        await wait(delay ?? 80);
+      if (text !== undefined) {
+        for (let i = 0; i < text.length; i++) {
+          currentText.value = currentText.value + text[i];
+          await wait(delay ?? 80);
+        }
       }
 
       writeSuffix();
@@ -55,8 +61,11 @@ export default function TypeWriter({ text, textSuffix, delay }: TypeWriterProps)
 
   return (
     <>
-      <span class="text-6xl text-white">
-        <span class="underline">{currentText}{extraText}</span>
+      <span class="text-2xl text-white">
+        <span class="">
+          {currentText}
+          {extraText}
+        </span>
         {blinkCursor}
       </span>
     </>
