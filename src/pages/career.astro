@@ -63,7 +63,7 @@ const titles = events.map(e => `${e.title}...`);
 ---
 
 <Layout title="Matt Hope" header="My career so far!" headerSuffix={titles}>
-  <div class="mb-20">
+  <div class="my-20">
     {
       events.map((event, i) => {
         return <CareerEvent {...event} isFirst={i === 0} />;
