@@ -14,14 +14,16 @@ export default function TypeWriter({
 }: TypeWriterProps) {
   const currentText = useSignal("");
   const extraText = useSignal("");
-  const blinkCursor = useComputed(() =>
-    currentText.value.length === (text?.length ?? 0) &&
-    (textSuffix === undefined || textSuffix?.length < 1) ? (
-      <span class="animate-blink">|</span>
-    ) : (
-      <span>|</span>
-    ),
-  );
+  const blinkCursor = useComputed(() => 
+  {
+    if (currentText === undefined || textSuffix === undefined) return;
+
+    if (text !== undefined && currentText.value.length === (text?.length ?? 0) && textSuffix !== undefined) {
+      return (<span class="animate-blink">|</span>)
+    }
+
+    return (<span>|</span>)
+  });
 
   const wait = (ms: number) =>
     new Promise((resolve) => setTimeout(resolve, ms));

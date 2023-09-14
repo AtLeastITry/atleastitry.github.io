@@ -1,12 +1,14 @@
 ---
+import { Image } from "astro:assets";
 import TypeWriter from "../components/type-writer";
 interface Props {
   title: string;
   header?: string;
-  headerSuffix?: string[];
+  typeWriterText?: string;
+  typeWriterSuffix?: string[];
 }
 
-const { title, header, headerSuffix } = Astro.props;
+const { title, header, typeWriterSuffix, typeWriterText } = Astro.props;
 ---
 
 <!doctype html>
@@ -21,46 +23,124 @@ const { title, header, headerSuffix } = Astro.props;
       rel="stylesheet"
       href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+    />
     <title>{title}</title>
   </head>
   <body class="font-mono">
     <main>
-      <header class="block bg-indigo-600 px-20 pb-10 pt-10">
+      <header class="block bg-indigo-950 px-20 pb-10 pt-10">
         <navbar class="grid w-full grid-flow-col">
           <span class="col-span-12 pt-4">
             <a
               href="/"
-              class="rounded bg-white px-4 py-2 text-indigo-600 hover:bg-indigo-400 hover:text-white"
+              class="bg-white px-4 py-2 text-indigo-950 hover:bg-indigo-400 hover:text-white"
               >matt-h.dev</a
             >
           </span>
           <span class="align-middle">
-            <button class="rounded bg-white px-6 py-4 text-indigo-600 hover:bg-indigo-400 hover:text-white"
+            <button
+              class="border-2 border-white px-6 py-4 text-white hover:border-indigo-400 hover:text-indigo-400"
               >Download my CV</button
             >
           </span>
           <span class="pt-4 text-end">
-            <a class="cursor-pointer text-white hover:text-indigo-400"
+            <a href="/#portfolio" class="text-white hover:text-indigo-400"
               >Portflio</a
             >
           </span>
           <span class="pt-4 text-end">
-            <a class="cursor-pointer text-white hover:text-indigo-400">Blog</a>
+            <a href="/blog" class="text-white hover:text-indigo-400">Blog</a>
           </span>
           <span class="pt-4 text-end">
-            <a
-              href="/career"
-              class="cursor-pointer text-white hover:text-indigo-400">Career</a
+            <a href="/career" class="text-white hover:text-indigo-400">Career</a
             >
           </span>
         </navbar>
       </header>
-      <div class="block block bg-indigo-600 px-56 pb-64 pt-40">
-        <h1 class="text-6xl text-white">{header}</h1>
+      <div class="block block bg-indigo-950 px-56 pb-64 pt-40">
+        <h1 class="text-6xl text-white">&lt;{header}/&gt;</h1>
         <hr class="my-6 border-2" />
-        <TypeWriter textSuffix={headerSuffix} client:load />
+        <TypeWriter
+          text={typeWriterText}
+          textSuffix={typeWriterSuffix}
+          client:load
+        />
       </div>
+      <slot />
     </main>
-    <slot />
+    <footer>
+      <h3 class="mb-10 block bg-indigo-950 px-20 py-10 text-2xl text-white">
+        &lt;Contact me!/&gt;
+      </h3>
+      <div class="block grid grid-cols-2 px-20 pb-10">
+        <form
+          class="border-r-2 border-indigo-950 pr-10"
+          action="https://formspree.io/f/matthew.hope396@outlook.com"
+          method="POST"
+        >
+          <div class="grid grid-rows-2 pb-10">
+            <label class="pb-2 text-xl text-indigo-950">Name</label>
+            <input class="border-2 border-indigo-950 px-2" type="text" name="name" />
+          </div>
+          <div class="grid grid-rows-2 pb-10">
+            <label class="pb-2 text-xl text-indigo-950">Email</label>
+            <input
+              class="border-2 border-indigo-950 px-2"
+              type="email"
+              name="email"
+            />
+          </div>
+          <div class="grid pb-10">
+            <label class="pb-2 text-xl text-indigo-950">Message</label>
+            <textarea class="border-2 border-indigo-950 p-2" name="message"
+            rows="10"></textarea>
+          </div>
+          <div class="grid grid-cols-2">
+            <button
+              class="mr-2 bg-indigo-950 px-4 py-2 text-white hover:bg-indigo-400 hover:text-white"
+              type="submit"
+            >
+              Send
+            </button>
+            <button
+              class="ml-2 border-2 border-indigo-950 px-6 py-4 text-indigo-950 hover:border-indigo-400 hover:text-indigo-400"
+            >
+              Clear
+            </button>
+          </div>
+        </form>
+        <div class="pl-10">
+          <a
+            class="text-xl text-indigo-950"
+            href="mailto:matthew.hope396@outlook.com"
+            ><i class="las la-envelope pr-4"></i>matthew.hope396@outlook.com</a
+          >
+        </div>
+      </div>
+      <div class="block bg-indigo-950 px-20 py-10 text-3xl text-white">
+        <a href="https://www.codementor.io/@atleastitry?refer=badge"
+          ><Image
+            class="inline"
+            src="https://www.codementor.io/m-badges/atleastitry/im-a-cm-g.svg"
+            alt="Codementor badge"
+            width={100}
+            height={50}
+          /></a
+        >
+        <a class="ml-5" href="https://github.com/AtLeastITry" target="_blank">
+          <i class="devicon-github-original hover:text-indigo-400"></i>
+        </a>
+        <a
+          class="ml-5"
+          href="https://www.linkedin.com/in/matt-hope/"
+          target="_blank"
+        >
+          <i class="devicon-linkedin-plain hover:text-indigo-400"></i>
+        </a>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import FormattedDate from "../../components/formatted-date.astro";
+
+const posts = (await getCollection("blog")).sort((a, b) =>
+  a.data.pubDate.valueOf() > b.data.pubDate.valueOf() ? -1 : 1,
+);
+
+const classes = {
+  normal: {
+    bg: (isSecondary: boolean) => (isSecondary ? "bg-white" : "bg-indigo-950"),
+    text: (isSecondary: boolean) =>
+      isSecondary ? "text-indigo-950" : "text-white",
+    border: (isSecondary: boolean) =>
+      isSecondary ? "border-indigo-950" : "border-white",
+  },
+  hover: {
+    bg: "hover:bg-indigo-400",
+    text: "hover:text-white",
+    border: "hover:border-white",
+  },
+};
+---
+
+<Layout title="blog" header="blog">
+  <section>
+    <ul>
+      {
+        posts.map((post, i) => (
+          <a
+            href={`/blog/${post.slug}/`}
+            class={`block px-40 py-10 ${classes.normal.bg(i % 2 == 0)} ${
+              classes.hover.bg
+            } ${classes.normal.text(i % 2 == 0)} ${classes.hover.text}`}
+          >
+            <h4 class="mb-10 text-2xl underline underline-offset-8">
+              {post.data.title}
+            </h4>
+            <p class="date">
+              <FormattedDate date={post.data.pubDate} />
+            </p>
+          </a>
+        ))
+      }
+    </ul>
+  </section>
+</Layout>

@@ -1,20 +1,55 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import TypeWriter from "../components/type-writer";
+import Projects from "../components/projects.astro";
+
+const projects = [
+  {
+    title: "Sourcey",
+    description:
+      "Event souricng library with built in aggregate and projection support",
+    url: "",
+  },
+  {
+    title: "Hostly",
+    description: "Net core style host for Xamarin apps",
+    url: "",
+  },
+  {
+    title: "Sound it out",
+    description: "Audio book portal",
+    url: "",
+  },
+  {
+    title: "Clipboard",
+    description: "Document text extractor",
+    url: "",
+  },
+  {
+    title: "Chatbot",
+    description: "ML based chatbot",
+    url: "",
+  },
+  {
+    title: "APC",
+    description: "Python compiler built with antlr",
+    url: "",
+  },
+];
 ---
 
 <Layout
   title="Matt Hope"
   header="Hi, It's Matt!"
-  headerSuffix={[
-    "I'm a Tech lead...",
-    "I'm a Software developer...",
-    "I'm a Mentor...",
-    "I'm a Coding enthusiast...",
+  typeWriterText="I'm a "
+  typeWriterSuffix={[
+    "Tech lead...",
+    "Software developer...",
+    "Mentor...",
+    "Coding enthusiast...",
   ]}
 >
-  <div class="px-40 py-20 text-indigo-600">
-    <h2 class="pb-10 text-2xl">About me</h2>
+  <div class="px-40 py-20 text-indigo-950">
+    <h2 class="pb-10 text-2xl">&lt;About me/&gt;</h2>
     <p>
       I'm a professional tech lead with a decade of software development
       experience, focusing on innovation and leveraging current technologies to
@@ -26,40 +61,8 @@ import TypeWriter from "../components/type-writer";
     </p>
   </div>
 
-  <div class="bg-indigo-600 px-40 py-10 text-white">
-    <h2 class="mb-0 text-2xl">Portfolio</h2>
+  <div class="bg-indigo-950 px-40 py-10 text-white">
+    <h2 id="portfolio" class="mb-0 text-2xl">&lt;Portfolio/&gt;</h2>
   </div>
-
-  <div class="grid grid-cols-2">
-    <div class="bg-indigo-400 px-40 py-20 text-white">
-      <h3 class="mb-2 border-b-2 text-xl">Sourcey</h3>
-      <span
-        >Event souricng library with built in aggregate and projection support</span
-      >
-    </div>
-    <div class="bg-white px-40 py-20 text-indigo-400">
-      <h3 class="mb-2 border-b-2 border-b-indigo-400 text-xl">Hostly</h3>
-      <span>Net core style host for Xamarin apps</span>
-    </div>
-  </div>
-  <div class="grid grid-cols-2">
-    <div class="bg-white px-40 py-20 text-indigo-400">
-      <h3 class="mb-2 border-b-2 border-b-indigo-400 text-xl">Sound it out</h3>
-      <span>Audio book portal</span>
-    </div>
-    <div class="bg-indigo-400 px-40 py-20 text-white">
-      <h3 class="mb-2 border-b-2 text-xl">Clipboard</h3>
-      <span>Document text extractor</span>
-    </div>
-  </div>
-  <div class="grid grid-cols-2">
-    <div class="bg-indigo-400 px-40 py-20 text-white">
-      <h3 class="mb-2 border-b-2 text-xl">Chatbot</h3>
-      <span>ML based chatbot</span>
-    </div>
-    <div class="bg-white px-40 py-20 text-indigo-400">
-      <h3 class="mb-2 border-b-2 border-b-indigo-400 text-xl">APC</h3>
-      <span>Python compiler built with antlr</span>
-    </div>
-  </div>
+  <Projects projects={projects} />
 </Layout>
