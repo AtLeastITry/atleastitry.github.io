@@ -1,0 +1,47 @@
+.project-bg-cyan {
+  @apply bg-cyan-500;
+}
+
+.project-bg-cyan-hover {
+  @apply hover:bg-cyan-300;
+}
+
+.project-bg-indigo {
+  @apply bg-indigo-500;
+}
+
+.project-bg-indigo-hover {
+  @apply hover:bg-indigo-300;
+}
+
+.project-bg-red {
+  @apply bg-red-500;
+}
+
+.project-bg-red-hover {
+  @apply hover:bg-red-300;
+}
+
+.project-bg-sky {
+  @apply bg-sky-500;
+}
+
+.project-bg-sky-hover {
+  @apply hover:bg-sky-300;
+}
+
+.project-bg-green {
+  @apply bg-green-500;
+}
+
+.project-bg-green-hover {
+  @apply hover:bg-green-300;
+}
+
+.project-bg-yellow {
+  @apply bg-yellow-500;
+}
+
+.project-bg-yellow-hover {
+  @apply hover:bg-yellow-300;
+}

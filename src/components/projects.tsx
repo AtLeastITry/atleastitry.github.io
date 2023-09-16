@@ -1,3 +1,5 @@
+import "./projects.css";
+
 type Project = {
   title: string;
   description: string;
@@ -41,11 +43,9 @@ export default function Projects({ projects }: ProjectsProps) {
           <a
             href={project.url}
             target="_blank"
-            class={`project block px-10 py-10 xl:px-40 xl:py-20 bg-${color}${
-              isSecondary ? "" : "-500"
-            } text-white ${
+            class={`project block px-10 py-10 xl:px-40 xl:py-20 project-bg-${color}-hover project-bg-${color} text-white ${
               large === true ? "lg:col-span-2" : ""
-            } hover:bg-${color}${isSecondary ? "" : "-300"}`}
+            }`}
           >
             <h3 class={`mb-2 border-b-2 border-white text-xl`}>
               {project.title}
