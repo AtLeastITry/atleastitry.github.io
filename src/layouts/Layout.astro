@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import TypeWriter from "../components/type-writer";
 import ContactForm from "../components/contact-form";
+import { NavMenu } from "../components/nav-menu";
 interface Props {
   title: string;
   header?: string;
@@ -140,40 +141,23 @@ const { title, header, typeWriterSuffix, typeWriterText } = Astro.props;
       });
     </script>
     <main>
-      <header class="block bg-indigo-950 px-20 pb-10 pt-10">
-        <navbar class="grid w-full grid-flow-col">
-          <span class="col-span-12 pt-4">
+      <header class="block bg-indigo-950 px-10 pb-10 pt-10 md:px-20">
+        <navbar class="grid w-full grid-cols-2 md:grid-cols-3">
+          <span class="md:col-span-2 pt-4">
             <a
               href="/"
               class="bg-white px-4 py-2 text-indigo-950 hover:bg-indigo-400 hover:text-white"
               >matt-h.dev</a
             >
           </span>
-          <span class="align-middle">
-            <a
-              href="/matt-h-resume.pdf"
-              target="_blank"
-              class="inline-block border-2 border-white px-6 py-4 text-white hover:border-indigo-400 hover:text-indigo-400"
-              >Download my CV</a
-            >
-          </span>
-          <span class="pt-4 text-end">
-            <a href="/#portfolio" class="text-white hover:text-indigo-400"
-              >Portflio</a
-            >
-          </span>
-          <span class="pt-4 text-end">
-            <a href="/blog" class="text-white hover:text-indigo-400">Blog</a>
-          </span>
-          <span class="pt-4 text-end">
-            <a href="/career" class="text-white hover:text-indigo-400">Career</a
-            >
-          </span>
+          <NavMenu client:load />
         </navbar>
       </header>
-      <div class="block block bg-indigo-950 px-56 pb-64 pt-40">
-        <h1 class="text-6xl text-white">&lt;{header}/&gt;</h1>
-        <hr class="my-6 border-2" />
+      <div
+        class="block bg-indigo-950 px-10 pb-20 pt-10 md:px-56 md:pb-64 md:pt-40"
+      >
+        <h1 class="text-3xl text-white md:text-6xl">&lt;{header}/&gt;</h1>
+        <hr class="my-2 border-2 md:my-6" />
         <TypeWriter
           text={typeWriterText}
           textSuffix={typeWriterSuffix}
@@ -183,12 +167,14 @@ const { title, header, typeWriterSuffix, typeWriterText } = Astro.props;
       <slot />
     </main>
     <footer>
-      <h3 class="mb-10 block bg-indigo-950 px-20 py-10 text-2xl text-white">
+      <h3
+        class="mb-10 block bg-indigo-950 px-10 py-10 text-2xl text-white md:px-20"
+      >
         &lt;Contact me!/&gt;
       </h3>
-      <div class="block grid grid-cols-2 px-20 pb-10">
+      <div class="grid px-10 pb-10 md:grid-cols-2 md:px-20">
         <ContactForm client:visible />
-        <div class="pl-10">
+        <div class="pt-10 md:pl-10 md:pt-0">
           <a
             class="text-xl text-indigo-950"
             href="mailto:matthew.hope396@outlook.com"

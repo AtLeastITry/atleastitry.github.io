@@ -21,7 +21,7 @@ export default function ContactForm() {
     if (errors.value.length === 0) return null;
 
     return (
-      <div class="my-4 bg-red-500 p-4 text-white">
+      <div class="mt-10 bg-red-500 p-4 text-white md:my-4">
         <ul>
           {errors.value.map((error) => (
             <li>{error}</li>
@@ -83,7 +83,7 @@ export default function ContactForm() {
   return (
     <>
       <form
-        class="border-r-2 border-indigo-950 pr-10"
+        class="border-b-2 border-indigo-950 pb-10 md:border-b-0 md:border-r-2 md:pb-0 md:pr-10"
         action="https://formspree.io/f/matthew.hope396@outlook.com"
         method="POST"
         onSubmit={onSubmitAsync}

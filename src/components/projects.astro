@@ -33,7 +33,7 @@ const projectGroups = projects.reduce<Project[][]>(
 {
   projectGroups.map((group, i) => {
     return (
-      <div class="grid grid-cols-2">
+      <div class="hidden grid-cols-2 md:grid">
         <Project project={group[0]} isSecondary={i % 2 == 0} />
         {group.length > 1 && (
           <Project project={group[1]} isSecondary={i % 2 != 0} />
@@ -42,3 +42,13 @@ const projectGroups = projects.reduce<Project[][]>(
     );
   })
 }
+
+<div class="grid grid-cols-1 md:hidden">
+  {
+    projects.map((project, i) => {
+      return (
+          <Project project={project} isSecondary={i % 2 == 0} />
+      );
+    })
+  }
+</div>

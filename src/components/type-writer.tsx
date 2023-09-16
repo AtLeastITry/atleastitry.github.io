@@ -63,7 +63,7 @@ export default function TypeWriter({
 
   return (
     <>
-      <span class="text-2xl text-white">
+      <span class="text-lg md:text-2xl text-white">
         <span class="">
           {currentText}
           {extraText}

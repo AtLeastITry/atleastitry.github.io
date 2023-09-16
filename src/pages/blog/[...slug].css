@@ -1,5 +1,5 @@
 .blog-post {
-  @apply px-20 py-10;
+  @apply px-10 md:px-20 py-10;
 }
 
 .blog-post p {
@@ -15,7 +15,7 @@
 }
 
 .blog-post pre {
-  @apply p-10 mb-10;
+  @apply p-5 md:p-10 mb-10;
 }
 
 .blog-post a {
