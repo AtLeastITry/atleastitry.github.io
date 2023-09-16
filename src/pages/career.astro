@@ -7,14 +7,16 @@ const events = [
   {
     title: "Tech lead",
     company: "Innovation Group Ltd",
-    description: "After a year of working at Innovation Group Ltd I was promoted to tech lead. This role involved me leading a team of developers. I was responsible for the technical direction of the project and ensuring the team were working efficiently and effectively.",
+    description:
+      "After a year of working at Innovation Group Ltd I was promoted to tech lead. This role involved me leading a team of developers. I was responsible for the technical direction of the project and ensuring the team were working efficiently and effectively.",
     start: "July 2022",
     end: "present",
   },
   {
     title: "Senior full stack developer",
     company: "Innovation Group Ltd",
-    description: "After working at Atlas for 8 years I decided to move on to a new challenge. I accepted a senior full stack developer role at Innovation Group Ltd. Which involved me working on their claims management system.",
+    description:
+      "After working at Atlas for 8 years I decided to move on to a new challenge. I accepted a senior full stack developer role at Innovation Group Ltd. Which involved me working on their claims management system.",
     start: "April 2021",
     end: "July 2022",
   },
@@ -59,11 +61,11 @@ const events = [
   },
 ];
 
-const titles = events.map(e => `${e.title}...`);
+const titles = events.map((e) => `${e.title}...`);
 ---
 
 <Layout title="Matt Hope" header="My career so far!">
-  <div class="my-20">
+  <div class="py-20 bg-secondary-500">
     {
       events.map((event, i) => {
         return <CareerEvent {...event} isFirst={i === 0} />;
