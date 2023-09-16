@@ -2,49 +2,56 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import FormattedDate from "../../components/formatted-date.astro";
+import "./index.css";
 
 const posts = (await getCollection("blog")).sort((a, b) =>
   a.data.pubDate.valueOf() > b.data.pubDate.valueOf() ? -1 : 1,
 );
 
-const classes = {
-  normal: {
-    bg: (isSecondary: boolean) => (isSecondary ? "bg-secondary" : "bg-indigo-950"),
-    text: (isSecondary: boolean) =>
-      isSecondary ? "text-white" : "text-white",
-    border: (isSecondary: boolean) =>
-      isSecondary ? "border-white" : "border-white",
-  },
-  hover: {
-    bg: "hover:bg-indigo-400",
-    text: "hover:text-white",
-    border: "hover:border-white",
-  },
-};
+const baseColors = ["indigo", "cyan", "secondary", "secondary"];
+
+let colors: string[] = [];
+let colorIndex = 0;
+let projectSize: boolean[] = [];
+let projectSizeIndex = 0;
+
+for (let i = 0; i < posts.length; i++) {
+  if (projectSizeIndex === 4) {
+    projectSizeIndex = 0;
+  }
+
+  projectSizeIndex++;
+
+  colorIndex = colorIndex === baseColors.length - 1 ? 0 : colorIndex + 1;
+  colors.push(baseColors[colorIndex]);
+
+  projectSize.push(
+    projectSizeIndex === 1 || projectSizeIndex === 4 ? true : false,
+  );
+}
 ---
 
 <Layout title="blog" header="blog">
-  <section>
-    <ul>
-      {
-        posts.map((post, i) => (
+  <div class="grid grid-cols-1 lg:grid-cols-3">
+    {
+      posts.map((post, i) => {
+        const color = colors[i];
+        const isSecondary = color === "secondary";
+        const large = projectSize[i];
+        return (
           <a
             href={`/blog/${post.slug}/`}
-            class={`block px-10 py-10 xl:px-40 ${classes.normal.bg(
-              i % 2 == 0,
-            )} ${classes.hover.bg} ${classes.normal.text(i % 2 == 0)} ${
-              classes.hover.text
+            class={`project block px-10 py-10 xl:px-40 xl:py-20 project-bg-${color}-hover project-bg-${color} text-white ${
+              large === true ? "lg:col-span-2" : ""
             }`}
           >
-            <h4 class="mb-10 break-words text-2xl underline underline-offset-8">
+            <h3 class={`mb-2 border-b-2 border-white text-xl`}>
               {post.data.title}
-            </h4>
-            <p class="date">
-              <FormattedDate date={post.data.pubDate} />
-            </p>
+            </h3>
+            <FormattedDate date={post.data.pubDate} />
           </a>
-        ))
-      }
-    </ul>
-  </section>
+        );
+      })
+    }
+  </div>
 </Layout>

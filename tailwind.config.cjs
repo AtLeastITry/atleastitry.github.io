@@ -4,7 +4,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        secondary: "rgb(70 67 116)"
+        secondary: {
+          500: "rgb(70 67 116)",
+          300: "rgb(98 95 138)",
+        },
       },
       animation: {
         blink: "1s blink step-end infinite;",
@@ -13,7 +16,7 @@ module.exports = {
         blink: {
           from: { color: "transparent" },
           to: { color: "transparent" },
-          "50%": { color: "white"},
+          "50%": { color: "white" },
         },
       },
     },

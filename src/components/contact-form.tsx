@@ -91,12 +91,16 @@ export default function ContactForm() {
       >
         <div class="grid grid-rows-2 pb-10">
           <label class="pb-2 text-xl text-white">Name</label>
-          <input class="bg-secondary px-2 text-white" type="text" name="name" />
+          <input
+            class="bg-secondary-500 px-2 text-white"
+            type="text"
+            name="name"
+          />
         </div>
         <div class="grid grid-rows-2 pb-10">
           <label class="pb-2 text-xl text-white">Email</label>
           <input
-            class="bg-secondary px-2 text-white"
+            class="bg-secondary-500 px-2 text-white"
             type="email"
             name="email"
           />
@@ -104,7 +108,7 @@ export default function ContactForm() {
         <div class="grid pb-10">
           <label class="pb-2 text-xl text-white">Message</label>
           <textarea
-            class="bg-secondary p-2 text-white"
+            class="bg-secondary-500 p-2 text-white"
             name="message"
             rows={10}
           ></textarea>
@@ -112,7 +116,7 @@ export default function ContactForm() {
         <div class="grid grid-cols-2">
           <button
             disabled={loading}
-            class="mr-2 bg-secondary px-4 py-2 text-white hover:bg-indigo-400 hover:text-white"
+            class="bg-secondary-500 mr-2 px-4 py-2 text-white hover:bg-indigo-400 hover:text-white"
           >
             {buttonText}
           </button>
@@ -121,7 +125,7 @@ export default function ContactForm() {
               e.preventDefault();
               clear();
             }}
-            class="ml-2 border-2 border-secondary px-6 py-4 text-secondary hover:border-indigo-400 hover:text-indigo-400"
+            class="border-secondary-500 text-secondary-500 ml-2 border-2 px-6 py-4 hover:border-indigo-400 hover:text-indigo-400"
           >
             Clear
           </button>

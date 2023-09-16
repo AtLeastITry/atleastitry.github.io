@@ -7,7 +7,7 @@
 }
 
 .project-bg-indigo {
-  @apply bg-indigo-500;
+  @apply bg-indigo-950;
 }
 
 .project-bg-indigo-hover {
@@ -44,4 +44,12 @@
 
 .project-bg-yellow-hover {
   @apply hover:bg-yellow-300;
+}
+
+.project-bg-secondary {
+  @apply bg-secondary-500;
+}
+
+.project-bg-secondary-hover {
+  @apply hover:bg-secondary-300;
 }

@@ -167,12 +167,10 @@ const { title, header, typeWriterSuffix, typeWriterText } = Astro.props;
       <slot />
     </main>
     <footer>
-      <h3
-        class="block bg-secondary px-10 py-10 text-2xl text-white xl:px-20"
-      >
+      <h3 class="block bg-indigo-950 px-10 py-10 text-2xl text-white xl:px-20">
         &lt;Contact me!/&gt;
       </h3>
-      <div class="grid pt-10 bg-indigo-950 px-10 pb-10 xl:grid-cols-2 xl:px-20">
+      <div class="grid bg-indigo-950 px-10 pb-10 pt-10 xl:grid-cols-2 xl:px-20">
         <ContactForm client:visible />
         <div class="pt-10 xl:pl-10 xl:pt-0">
           <a
@@ -182,7 +180,7 @@ const { title, header, typeWriterSuffix, typeWriterText } = Astro.props;
           >
         </div>
       </div>
-      <div class="block bg-secondary px-20 py-10 text-3xl text-white">
+      <div class="bg-secondary-500 block px-20 py-10 text-3xl text-white">
         <a href="https://www.codementor.io/@atleastitry?refer=badge"
           ><Image
             class="inline"

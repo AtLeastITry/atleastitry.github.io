@@ -1,5 +1,3 @@
-import "./projects.css";
-
 type Project = {
   title: string;
   description: string;
@@ -11,46 +9,15 @@ type ProjectsProps = {
 };
 
 export default function Projects({ projects }: ProjectsProps) {
-  const baseColors = ["cyan", "indigo", "red", "sky", "green", "yellow"];
-
-  let colors: string[] = [];
-  let colorIndex = 0;
-  let projectSize: boolean[] = [];
-  let projectSizeIndex = 0;
-
-  for (let i = 0; i < projects.length; i++) {
-    if (projectSizeIndex === 4) {
-      projectSizeIndex = 0;
-    }
-
-    projectSizeIndex++;
-
-    colorIndex = colorIndex === baseColors.length - 1 ? 0 : colorIndex + 1;
-    colors.push(baseColors[colorIndex]);
-
-    projectSize.push(
-      projectSizeIndex === 1 || projectSizeIndex === 4 ? true : false,
-    );
-  }
-
   return (
-    <div class="grid grid-cols-1 lg:grid-cols-3 ">
+    <div class="grid grid-cols-1 bg-secondary-500 lg:grid-cols-2">
       {projects.map((project, i) => {
-        const color = colors[i];
-        const isSecondary = color === "secondary";
-        const large = projectSize[i];
         return (
-          <a
-            href={project.url}
-            target="_blank"
-            class={`project block px-10 py-10 xl:px-40 xl:py-20 project-bg-${color}-hover project-bg-${color} text-white ${
-              large === true ? "lg:col-span-2" : ""
-            }`}
-          >
-            <h3 class={`mb-2 border-b-2 border-white text-xl`}>
+          <a href={project.url} target="_blank" class="shadow-2xl mx-10 px-10 my-10 py-20 bg-indigo-950 hover:bg-indigo-400">
+            <h3 class="mb-2 border-b-2 border-white text-xl text-white">
               {project.title}
             </h3>
-            <span>{project.description}</span>
+            <span class="text-white">{project.description}</span>
           </a>
         );
       })}
