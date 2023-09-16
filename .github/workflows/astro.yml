@@ -47,16 +47,16 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
+      - name: install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: "6"
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "18.17.1"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
           cache-dependency-path: ${{ env.BUILD_PATH }}/pnpm-lock.yaml
-      - name: install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: "6"
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
