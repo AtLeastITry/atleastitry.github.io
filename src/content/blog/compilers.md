@@ -1,9 +1,7 @@
 ---
 title: "Compilers - One of the more intimidating projects"
-slug: "compilers"
-keywords: "ANTLR compilers java c# python AST lexical analysis parser"
-date: 2020-06-21T16:36:14+01:00
-draft: false
+description: ''
+pubDate: 'June 21 2020'
 ---
 
 The terms “compiler” and “Intermediate language” used to be somewhat intimidating to me; that is until I decided to take on the challenge of building my very own compiler. Better yet, to make it a little bit more interesting, I also went ahead and developed it in Java, which is an unusual choice considering I primarily work in C#. Now, this challenge wasn’t so much a quick “look on Stack Overflow and get it done”. It required a lot of reading and research into just how compilers work. Most of my time was spent reading the “Dragon Book”, which, even though might be a bit outdated for the more modern compilers of today, possessed core concepts that are still very much relevant.

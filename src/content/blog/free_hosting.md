@@ -1,12 +1,7 @@
 ---
 title: "Free hosting with GitHub pages"
-description: "How to host your static site securely for free with GitHub pages and Cloudflare"
-slug: "Free hosting"
-keywords: "Github pages Hosting Free Cloudflare DNS HTTPS SSL"
-categories: 
-    - "How to"
-date: 2019-05-09T18:28:45-00:00
-draft: false
+description: ''
+pubDate: 'May 09 2019'
 ---
 
 With the use of GitHub pages and Cloudflare, it is very possible to host your own static website over HTTPS for free. However, there are a few pre-requisites:

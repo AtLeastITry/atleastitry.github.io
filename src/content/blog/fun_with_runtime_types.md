@@ -1,17 +1,12 @@
 ---
 title: "Having fun with .Net's System.Reflection.Emit"
-description: "Using System.Reflection.Emit to generate types at runtime"
-slug: "fun with runtime types"
-keywords: "System.Reflection.Emit c# .Net runtime types"
-categories: 
-    - "How to"
-date: 2020-05-31T19:08:06+01:00
-draft: flase
+description: ''
+pubDate: 'June 31 2020'
 ---
 
 I recently decided to undertake some interesting work around building a library .Net Core style host builder for Xamarin apps. As part of that work I encountered a strange hurdle. Essentially, I needed to define a brand new type that extended a base class and implemented an interface...all at runtime. At first, it seemed better to completely avoid this scenario; however, in the goal of complete simplicitly and readability of the end-user code needed for this library, I decided to tackle this challenge head on!
 
-**Step 1 - To actually define a type at runtime...**
+### Step 1 - To actually define a type at runtime...
 The first task was of course to actually build this mysterious type at runtime. Luckily [System.Reflection.Emit](https://docs.microsoft.com/en-us/dotnet/api/system.reflection.emit?view=netcore-3.1) has us covered. This assembly allows us to generate in-memory assemblies and take use of the [TypeBuilder](https://docs.microsoft.com/en-us/dotnet/api/system.reflection.emit.typebuilder?view=netcore-3.1). To generate a simple type looks something like this:
 ```csharp
 public Type GenerateType() 
@@ -29,7 +24,7 @@ public Type GenerateType()
 ```
 
 
-**Step 2 - Inherit the base class and implement the interface**
+### Step 2 - Inherit the base class and implement the interface
 Of course, generating a type is all fine and dandy but it is not quite as fun if we do not inherit a class or implement an interface. Doing that is actually much simpler than it sounds. Take a look:
 ```csharp
 public Type GenerateType() 
@@ -52,7 +47,7 @@ public Type GenerateType()
 ```
 
 
-**Step 3 - Inject IL to generate pass-through constructors (The worst bit)**
+### Step 3 - Inject IL to generate pass-through constructors (The worst bit)
 This is where things get a little bit more complicated.The first thing we need to do is to copy over the constructors from our `SuperFancyBaseClass`:
 ```csharp
 // Get all of the constructors from the SuperFancyBaseClass type

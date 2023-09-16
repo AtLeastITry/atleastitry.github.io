@@ -1,0 +1,208 @@
+---
+import { Image } from "astro:assets";
+import TypeWriter from "../components/type-writer";
+import ContactForm from "../components/contact-form";
+import { NavMenu } from "../components/nav-menu";
+interface Props {
+  title: string;
+  header?: string;
+  typeWriterText?: string;
+  typeWriterSuffix?: string[];
+}
+
+const { title, header, typeWriterSuffix, typeWriterText } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link
+      rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.css"
+    />
+    <title>{title}</title>
+  </head>
+  <body class="font-mono">
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.js"
+    ></script>
+    <script>
+      window.addEventListener("load", function () {
+        var cc = initCookieConsent();
+
+        cc.run({
+          current_lang: "en",
+          autoclear_cookies: true,
+          page_scripts: true,
+
+          languages: {
+            en: {
+              consent_modal: {
+                title: "We use cookies!",
+                description:
+                  'Hi, this website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
+                primary_btn: {
+                  text: "Accept all",
+                  role: "accept_all",
+                },
+                secondary_btn: {
+                  text: "Reject all",
+                  role: "accept_necessary",
+                },
+              },
+              settings_modal: {
+                title: "Cookie preferences",
+                save_settings_btn: "Save settings",
+                accept_all_btn: "Accept all",
+                reject_all_btn: "Reject all",
+                close_btn_label: "Close",
+                cookie_table_headers: [
+                  { col1: "Name" },
+                  { col2: "Domain" },
+                  { col3: "Expiration" },
+                  { col4: "Description" },
+                ],
+                blocks: [
+                  {
+                    title: "Cookie usage 📢",
+                    description:
+                      'I use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want. For more details relative to cookies and other sensitive data, please read the full <a href="#" class="cc-link">privacy policy</a>.',
+                  },
+                  {
+                    title: "Strictly necessary cookies",
+                    description:
+                      "These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly",
+                    toggle: {
+                      value: "necessary",
+                      enabled: true,
+                      readonly: true, // cookie categories with readonly=true are all treated as "necessary cookies"
+                    },
+                  },
+                  {
+                    title: "Performance and Analytics cookies",
+                    description:
+                      "These cookies allow the website to remember the choices you have made in the past",
+                    toggle: {
+                      value: "analytics", // your cookie category
+                      enabled: false,
+                      readonly: false,
+                    },
+                    cookie_table: [
+                      // list of all expected cookies
+                      {
+                        col1: "^_ga", // match all cookies starting with "_ga"
+                        col2: "google.com",
+                        col3: "2 years",
+                        col4: "description ...",
+                        is_regex: true,
+                      },
+                      {
+                        col1: "_gid",
+                        col2: "google.com",
+                        col3: "1 day",
+                        col4: "description ...",
+                      },
+                    ],
+                  },
+                  {
+                    title: "Advertisement and Targeting cookies",
+                    description:
+                      "These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you",
+                    toggle: {
+                      value: "targeting",
+                      enabled: false,
+                      readonly: false,
+                    },
+                  },
+                  {
+                    title: "More information",
+                    description:
+                      'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="#yourcontactpage">contact us</a>.',
+                  },
+                ],
+              },
+            },
+          },
+        });
+      });
+    </script>
+    <main>
+      <header class="block bg-indigo-950 px-10 pb-10 pt-10 xl:px-20">
+        <navbar class="grid w-full grid-cols-2 xl:grid-cols-3">
+          <span class="pt-4 xl:col-span-2">
+            <a
+              href="/"
+              class="bg-white px-4 py-2 text-indigo-950 hover:bg-indigo-400 hover:text-white"
+              >matt-h.dev</a
+            >
+          </span>
+          <NavMenu client:load />
+        </navbar>
+      </header>
+      <div
+        class="block bg-indigo-950 px-10 pb-20 pt-10 xl:px-56 xl:pb-64 xl:pt-40"
+      >
+        <h1 class="text-3xl text-white xl:text-6xl">&lt;{header}/&gt;</h1>
+        <hr class="my-2 border-2 xl:my-6" />
+        <TypeWriter
+          text={typeWriterText}
+          textSuffix={typeWriterSuffix}
+          client:load
+        />
+      </div>
+      <slot />
+    </main>
+    <footer>
+      <h3
+        class="mb-10 block bg-indigo-950 px-10 py-10 text-2xl text-white xl:px-20"
+      >
+        &lt;Contact me!/&gt;
+      </h3>
+      <div class="grid px-10 pb-10 xl:grid-cols-2 xl:px-20">
+        <ContactForm client:visible />
+        <div class="pt-10 xl:pl-10 xl:pt-0">
+          <a
+            class="text-xl text-indigo-950"
+            href="mailto:matthew.hope396@outlook.com"
+            ><i class="las la-envelope pr-4"></i>matthew.hope396@outlook.com</a
+          >
+        </div>
+      </div>
+      <div class="block bg-indigo-950 px-20 py-10 text-3xl text-white">
+        <a href="https://www.codementor.io/@atleastitry?refer=badge"
+          ><Image
+            class="inline"
+            src="https://www.codementor.io/m-badges/atleastitry/im-a-cm-g.svg"
+            alt="Codementor badge"
+            width={100}
+            height={50}
+          /></a
+        >
+        <a class="ml-5" href="https://github.com/AtLeastITry" target="_blank">
+          <i class="devicon-github-original hover:text-indigo-400"></i>
+        </a>
+        <a
+          class="ml-5"
+          href="https://www.linkedin.com/in/matt-hope/"
+          target="_blank"
+        >
+          <i class="devicon-linkedin-plain hover:text-indigo-400"></i>
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

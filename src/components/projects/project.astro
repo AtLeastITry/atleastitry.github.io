@@ -1,0 +1,40 @@
+---
+import "./project.css";
+
+type Project = {
+  title: string;
+  description: string;
+  url: string;
+};
+
+interface Props {
+  project: Project;
+  isSecondary?: boolean;
+}
+
+const { project, isSecondary } = Astro.props;
+
+const classes = {
+  normal: {
+    bg: isSecondary ? "bg-white" : "bg-indigo-950",
+    text: isSecondary ? "text-indigo-950" : "text-white",
+    border: isSecondary ? "border-indigo-950" : "border-white",
+  },
+  hover: {
+    bg: "hover:bg-indigo-400",
+    text: "hover:text-white",
+    border: "hover:border-white",
+  },
+};
+---
+
+<a
+  href={project.url}
+  target="_blank"
+  class={`block project px-10 py-10 xl:px-40 xl:py-20 ${classes.normal.bg} ${classes.hover.bg} ${classes.normal.text} ${classes.hover.text}`}
+>
+  <h3 class={`mb-2 border-b-2 text-xl ${classes.normal.border}`}>
+    {project.title}
+  </h3>
+  <span>{project.description}</span>
+</a>

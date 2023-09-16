@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Projects from "../components/projects.astro";
+
+const projects = [
+  {
+    title: "Sourcey",
+    description:
+      "Event souricng library with built in aggregate and projection support",
+    url: "https://sourceyorg.github.io/",
+  },
+  {
+    title: "Hostly",
+    description: "Net core style host for Xamarin apps",
+    url: "https://github.com/hostly-org/hostly",
+  },
+  {
+    title: "Sound it out",
+    description: "Audio book portal",
+    url: "https://github.com/sound-it-out",
+  },
+  {
+    title: "Clipboard",
+    description: "Document text extractor",
+    url: "https://github.com/clipboard-org/clipboard",
+  },
+  {
+    title: "Chatbot",
+    description: "ML based chatbot",
+    url: "https://github.com/AtLeastITry/seq2seq-keras-chatBot",
+  },
+  {
+    title: "APC",
+    description: "Python compiler built with antlr",
+    url: "https://github.com/AtLeastITry/antlr-python-compiler",
+  },
+];
+---
+
+<Layout
+  title="Matt Hope"
+  header="Hi, It's Matt!"
+  typeWriterText="I'm a "
+  typeWriterSuffix={[
+    "Tech lead...",
+    "Software developer...",
+    "Mentor...",
+    "Coding enthusiast...",
+  ]}
+>
+  <div class="px-10 py-10 text-indigo-950 xl:px-40 xl:py-20">
+    <h2 class="pb-10 text-2xl">&lt;About me/&gt;</h2>
+    <p>
+      I'm a professional tech lead with a decade of software development
+      experience, focusing on innovation and leveraging current technologies to
+      build large scale enterprise applications. In-depth experience in
+      requirements gathering, sprint planning, development, design, maintenance,
+      and testing of software. Broad expertise in various platforms, frameworks,
+      and technologies with a proven ability to eﬃciently lead teams to work in
+      a collaborative way to deliver projects on schedule.
+    </p>
+  </div>
+
+  <div class="bg-indigo-950 px-10 py-10 text-white xl:px-40 xl:py-20">
+    <h2 id="portfolio" class="mb-0 text-2xl">&lt;Portfolio/&gt;</h2>
+  </div>
+  <Projects projects={projects} />
+</Layout>

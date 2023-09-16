@@ -1,9 +1,7 @@
 ---
 title: "Chatbots? My first machine learning experience"
-slug: "chatbots"
-keywords: "chatbots ML machine learning AI experience python keras tensorflow NTM seq2seq"
-date: 2020-06-28T16:36:14+01:00
-draft: false
+description: ''
+pubDate: 'June 28 2020'
 ---
 
 

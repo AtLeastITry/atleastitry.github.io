@@ -1,102 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>matt-h</title>
-    <link>https://www.matt-h.dev/</link>
-    <description>Recent content on matt-h</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 28 Jun 2020 16:36:14 +0100</lastBuildDate>
-    
-	<atom:link href="https://www.matt-h.dev/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Chatbots? My first machine learning experience</title>
-      <link>https://www.matt-h.dev/blog/chatbots/</link>
-      <pubDate>Sun, 28 Jun 2020 16:36:14 +0100</pubDate>
-      
-      <guid>https://www.matt-h.dev/blog/chatbots/</guid>
-      <description>During my final year at university, I decided to take a leap of faith and dive straight into the world of ML (Machine Learning) and data science. Without any prior knowledge, I thought, what better way to learn a new topic than to base my final year dissertation on it&amp;hellip;Now at first, this might seem like a stupid idea, especially when considering the weight it has on my overall grade. But after the 5-6 years I’ve spent working in the software development industry, I’ve found that I learn best when I’m under pressure.</description>
-    </item>
-    
-    <item>
-      <title>Compilers - One of the more intimidating projects</title>
-      <link>https://www.matt-h.dev/blog/compilers/</link>
-      <pubDate>Sun, 21 Jun 2020 16:36:14 +0100</pubDate>
-      
-      <guid>https://www.matt-h.dev/blog/compilers/</guid>
-      <description>The terms “compiler” and “Intermediate language” used to be somewhat intimidating to me; that is until I decided to take on the challenge of building my very own compiler. Better yet, to make it a little bit more interesting, I also went ahead and developed it in Java, which is an unusual choice considering I primarily work in C#. Now, this challenge wasn’t so much a quick “look on Stack Overflow and get it done”.</description>
-    </item>
-    
-    <item>
-      <title>.Net core host builder for Xamarin? Yes please!</title>
-      <link>https://www.matt-h.dev/blog/hostly/</link>
-      <pubDate>Wed, 10 Jun 2020 16:36:14 +0100</pubDate>
-      
-      <guid>https://www.matt-h.dev/blog/hostly/</guid>
-      <description>This year I decided to embark on the journey of developing a .Net Core style host builder for Xamarin. I had previously seen examples using the HostBuilder provided by the .Net Core framework. While this approach was perfectly fine and works as intended, I found myself wanting something a little more integrated with Xamarin. Enter Hostly, a framework that provides end-users with a custom Ihost tailored to Xamarin.Forms. It&amp;rsquo;s as simple as running a few lines of code in your entry class (FormsAppCompatActivity in Android, or FormsApplicationDelegate in iOS):</description>
-    </item>
-    
-    <item>
-      <title>Having fun with .Net&#39;s System.Reflection.Emit</title>
-      <link>https://www.matt-h.dev/blog/fun-with-runtime-types/</link>
-      <pubDate>Sun, 31 May 2020 19:08:06 +0100</pubDate>
-      
-      <guid>https://www.matt-h.dev/blog/fun-with-runtime-types/</guid>
-      <description>I recently decided to undertake some interesting work around building a library .Net Core style host builder for Xamarin apps. As part of that work I encountered a strange hurdle. Essentially, I needed to define a brand new type that extended a base class and implemented an interface&amp;hellip;all at runtime. At first, it seemed better to completely avoid this scenario; however, in the goal of complete simplicitly and readability of the end-user code needed for this library, I decided to tackle this challenge head on!</description>
-    </item>
-    
-    <item>
-      <title>Portfolio</title>
-      <link>https://www.matt-h.dev/portfolio/</link>
-      <pubDate>Wed, 04 Sep 2019 20:29:58 +0100</pubDate>
-      
-      <guid>https://www.matt-h.dev/portfolio/</guid>
-      <description>HostlyA dot net core stlye host for Xamarin apps
-Sound it outOnline portal to generate audio books from documents
-ClipboardA c# library that provides the ability to extract text from various document file formats
-SSLEngineA c# library that provides the ability to execute OpenSSL commands</description>
-    </item>
-    
-    <item>
-      <title>Free hosting with GitHub pages</title>
-      <link>https://www.matt-h.dev/blog/free-hosting/</link>
-      <pubDate>Thu, 09 May 2019 18:28:45 +0000</pubDate>
-      
-      <guid>https://www.matt-h.dev/blog/free-hosting/</guid>
-      <description>With the use of GitHub pages and Cloudflare, it is very possible to host your own static website over HTTPS for free. However, there are a few pre-requisites:
- A GitHub account (register here) A CloudFlare account (register here) An installation of Hugo (Optional, this was my choice of static site generators)  Once you have signed up to both of the services the first thing to do is create yourself a new GitHub repository</description>
-    </item>
-    
-    <item>
-      <title>Career</title>
-      <link>https://www.matt-h.dev/career/</link>
-      <pubDate>Wed, 30 Jan 2019 22:04:11 +0000</pubDate>
-      
-      <guid>https://www.matt-h.dev/career/</guid>
-      <description>Software consultantFundipediaAfter working in a software developer position for a short while I was then promomoted to software consultant for a more client facing position.
-2020-03-01Software developerAtlas Computer Systems LtdAfter successfully securing a First Class (Hons.) Bsc Computer Science degree I was promoted to a software developer.
-2019-09-01Degree apprenticeAtlas Computer Systems Ltd/University of essexWhilst in my role as a junior developer I was given the opportunity to enter a degree apprenticeship program.</description>
-    </item>
-    
-    <item>
-      <title>Contact</title>
-      <link>https://www.matt-h.dev/contact/</link>
-      <pubDate>Tue, 29 Jan 2019 20:16:47 +0000</pubDate>
-      
-      <guid>https://www.matt-h.dev/contact/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://www.matt-h.dev/about/</link>
-      <pubDate>Tue, 29 Jan 2019 20:11:48 +0000</pubDate>
-      
-      <guid>https://www.matt-h.dev/about/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
-</rss>

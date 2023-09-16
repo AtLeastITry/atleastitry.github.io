@@ -1,0 +1,31 @@
+---
+export interface Props {
+  title: string;
+  company: string;
+  start: string;
+  end: string;
+  description: string;
+  isFirst: boolean;
+}
+
+const { title, company, start, end, description, isFirst } =
+  Astro.props as Props;
+---
+
+<div class="grid content-center justify-center">
+  {
+    !isFirst && (
+      <div class="grid content-center justify-center">
+        <i class="las la-long-arrow-alt-up text-6xl text-indigo-950" />
+      </div>
+    )
+  }
+  <article
+    class="mx-10 max-w-2xl rounded bg-indigo-950 px-10 py-5 text-white xl:mx-0 xl:px-20"
+  >
+    <p class="pb-2 text-start text-sm">[{start} - {end}]</p>
+    <h1 class="border-b-2 text-2xl">{title}</h1>
+    <h2 class="pb-3 text-lg">{company}</h2>
+    <p>{description}</p>
+  </article>
+</div>

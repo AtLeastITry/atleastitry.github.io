@@ -1,0 +1,52 @@
+---
+import Project from "./projects/project.astro";
+type Project = {
+  title: string;
+  description: string;
+  url: string;
+};
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+
+const perChunk = 2;
+
+const projectGroups = projects.reduce<Project[][]>(
+  (resultArray, item, index) => {
+    const chunkIndex = Math.floor(index / perChunk);
+
+    if (!resultArray[chunkIndex]) {
+      resultArray[chunkIndex] = []; // start a new chunk
+    }
+
+    resultArray[chunkIndex].push(item);
+
+    return resultArray;
+  },
+  [],
+);
+---
+
+{
+  projectGroups.map((group, i) => {
+    return (
+      <div class="hidden grid-cols-2 xl:grid">
+        <Project project={group[0]} isSecondary={i % 2 == 0} />
+        {group.length > 1 && (
+          <Project project={group[1]} isSecondary={i % 2 != 0} />
+        )}
+      </div>
+    );
+  })
+}
+
+<div class="grid grid-cols-1 xl:hidden">
+  {
+    projects.map((project, i) => {
+      return <Project project={project} isSecondary={i % 2 == 0} />;
+    })
+  }
+</div>

@@ -1,6 +1,0 @@
-order = 1
-title = "Sound it out"
-description = "Online portal to generate audio books from documents"
-logo = "sounditout_logo.svg"
-project_url = "https://www.sound-it-out.com/"
-repo_url = "https://github.com/sound-it-out"
