@@ -66,8 +66,8 @@ export default function ContactForm() {
         errors.value = ["An unknown error occurred."];
       }
     } else {
-      isSuccess.value = true;
       clear();
+      isSuccess.value = true;
     }
 
     loading.value = false;
@@ -90,25 +90,21 @@ export default function ContactForm() {
         ref={formRef}
       >
         <div class="grid grid-rows-2 pb-10">
-          <label class="pb-2 text-xl text-indigo-950">Name</label>
-          <input
-            class="border-2 border-indigo-950 px-2"
-            type="text"
-            name="name"
-          />
+          <label class="pb-2 text-xl text-white">Name</label>
+          <input class="bg-secondary px-2 text-white" type="text" name="name" />
         </div>
         <div class="grid grid-rows-2 pb-10">
-          <label class="pb-2 text-xl text-indigo-950">Email</label>
+          <label class="pb-2 text-xl text-white">Email</label>
           <input
-            class="border-2 border-indigo-950 px-2"
+            class="bg-secondary px-2 text-white"
             type="email"
             name="email"
           />
         </div>
         <div class="grid pb-10">
-          <label class="pb-2 text-xl text-indigo-950">Message</label>
+          <label class="pb-2 text-xl text-white">Message</label>
           <textarea
-            class="border-2 border-indigo-950 p-2"
+            class="bg-secondary p-2 text-white"
             name="message"
             rows={10}
           ></textarea>
@@ -116,7 +112,7 @@ export default function ContactForm() {
         <div class="grid grid-cols-2">
           <button
             disabled={loading}
-            class="mr-2 bg-indigo-950 px-4 py-2 text-white hover:bg-indigo-400 hover:text-white"
+            class="mr-2 bg-secondary px-4 py-2 text-white hover:bg-indigo-400 hover:text-white"
           >
             {buttonText}
           </button>
@@ -125,7 +121,7 @@ export default function ContactForm() {
               e.preventDefault();
               clear();
             }}
-            class="ml-2 border-2 border-indigo-950 px-6 py-4 text-indigo-950 hover:border-indigo-400 hover:text-indigo-400"
+            class="ml-2 border-2 border-secondary px-6 py-4 text-secondary hover:border-indigo-400 hover:text-indigo-400"
           >
             Clear
           </button>

@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Projects from "../components/projects.astro";
+import Projects from "../components/projects";
 
 const projects = [
   {
@@ -48,7 +48,7 @@ const projects = [
     "Coding enthusiast...",
   ]}
 >
-  <div class="px-10 py-10 text-indigo-950 xl:px-40 xl:py-20">
+  <div class="bg-secondary px-10 py-10 text-white xl:px-40 xl:py-20">
     <h2 class="pb-10 text-2xl">&lt;About me/&gt;</h2>
     <p>
       I'm a professional tech lead with a decade of software development
@@ -64,5 +64,5 @@ const projects = [
   <div class="bg-indigo-950 px-10 py-10 text-white xl:px-40 xl:py-20">
     <h2 id="portfolio" class="mb-0 text-2xl">&lt;Portfolio/&gt;</h2>
   </div>
-  <Projects projects={projects} />
+  <Projects projects={projects} client:visible />
 </Layout>
