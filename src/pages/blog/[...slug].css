@@ -1,5 +1,5 @@
 .blog-post {
-  @apply px-10 md:px-20 py-10;
+  @apply px-10 py-10 xl:px-20;
 }
 
 .blog-post p {
@@ -7,15 +7,15 @@
 }
 
 .blog-post h2 {
-  @apply mb-10 text-2xl text-indigo-950 underline underline-offset-8; 
+  @apply mb-10 text-2xl text-indigo-950 underline underline-offset-8;
 }
 
 .blog-post h3 {
-  @apply mb-10 text-xl text-indigo-950; 
+  @apply mb-10 text-xl text-indigo-950;
 }
 
 .blog-post pre {
-  @apply p-5 md:p-10 mb-10;
+  @apply mb-10 p-5 xl:p-10;
 }
 
 .blog-post a {

@@ -8,13 +8,13 @@ export function NavMenu() {
     if (menuVisible.value === true) {
       return (
         <>
-          <span class="text-end align-middle text-2xl md:hidden">
+          <span class="text-end align-middle text-2xl xl:hidden">
             <i
               onClick={toggleMenu}
               class="las la-bars cursor-pointer text-indigo-400"
             ></i>
           </span>
-          <div class="col-span-2 pt-10 mt-10 grid grid-cols-1 border-t-2 md:hidden">
+          <div class="col-span-2 mt-10 grid grid-cols-1 border-t-2 pt-10 xl:hidden">
             <span class="text-center">
               <a
                 href="/matt-h-resume.pdf"
@@ -46,7 +46,7 @@ export function NavMenu() {
 
     return (
       <>
-        <span class="text-end align-middle text-2xl md:hidden">
+        <span class="text-end align-middle text-2xl xl:hidden">
           <i
             onClick={toggleMenu}
             class="las la-bars cursor-pointer text-white hover:text-indigo-400"
@@ -59,7 +59,7 @@ export function NavMenu() {
   return (
     <>
       {mobileMenu}
-      <div class="hidden grid-cols-5 md:grid">
+      <div class="hidden grid-cols-5 xl:grid">
         <span class="col-span-2 align-middle">
           <a
             href="/matt-h-resume.pdf"

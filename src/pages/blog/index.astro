@@ -30,11 +30,13 @@ const classes = {
         posts.map((post, i) => (
           <a
             href={`/blog/${post.slug}/`}
-            class={`block px-10 md:px-40 py-10 ${classes.normal.bg(i % 2 == 0)} ${
-              classes.hover.bg
-            } ${classes.normal.text(i % 2 == 0)} ${classes.hover.text}`}
+            class={`block px-10 py-10 xl:px-40 ${classes.normal.bg(
+              i % 2 == 0,
+            )} ${classes.hover.bg} ${classes.normal.text(i % 2 == 0)} ${
+              classes.hover.text
+            }`}
           >
-            <h4 class="mb-10 text-2xl underline underline-offset-8 break-words">
+            <h4 class="mb-10 break-words text-2xl underline underline-offset-8">
               {post.data.title}
             </h4>
             <p class="date">
