@@ -40,7 +40,7 @@ export default function ContactForm() {
   ) => {
     event.preventDefault();
 
-    if (!event.target) return;
+    if (!event.target || isSuccess.value === true) return;
 
     loading.value = true;
     errors.value = [];
@@ -82,57 +82,59 @@ export default function ContactForm() {
 
   return (
     <>
-      <form
-        class="border-b-2 border-indigo-950 pb-10 xl:border-b-0 xl:border-r-2 xl:pb-0 xl:pr-10"
-        action="https://formspree.io/f/matthew.hope396@outlook.com"
-        method="POST"
-        onSubmit={onSubmitAsync}
-        ref={formRef}
-      >
-        <div class="grid grid-rows-2 pb-10">
-          <label class="pb-2 text-xl text-white">Name</label>
-          <input
-            class="bg-secondary-500 px-2 text-white"
-            type="text"
-            name="name"
-          />
-        </div>
-        <div class="grid grid-rows-2 pb-10">
-          <label class="pb-2 text-xl text-white">Email</label>
-          <input
-            class="bg-secondary-500 px-2 text-white"
-            type="email"
-            name="email"
-          />
-        </div>
-        <div class="grid pb-10">
-          <label class="pb-2 text-xl text-white">Message</label>
-          <textarea
-            class="bg-secondary-500 p-2 text-white"
-            name="message"
-            rows={10}
-          ></textarea>
-        </div>
-        <div class="grid grid-cols-2">
-          <button
-            disabled={loading}
-            class="bg-secondary-500 mr-2 px-4 py-2 text-white hover:bg-indigo-400 hover:text-white"
-          >
-            {buttonText}
-          </button>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              clear();
-            }}
-            class="border-secondary-500 text-secondary-500 ml-2 border-2 px-6 py-4 hover:border-indigo-400 hover:text-indigo-400"
-          >
-            Clear
-          </button>
-        </div>
-        {errorMessages}
-        {successMessage}
-      </form>
+      <div class="bg-secondary-500 w-[25rem] p-5 sm:p-10 sm:w-[35rem] md:w-[48rem]">
+        <form
+          class="bg-indigo-950 p-10 shadow-2xl xl:border-b-0"
+          action="https://formspree.io/f/matthew.hope396@outlook.com"
+          method="POST"
+          onSubmit={onSubmitAsync}
+          ref={formRef}
+        >
+          <div class="grid grid-rows-2 pb-10">
+            <label class="pb-2 text-xl text-white">Name</label>
+            <input
+              class="bg-secondary-500 px-2 text-white"
+              type="text"
+              name="name"
+            />
+          </div>
+          <div class="grid grid-rows-2 pb-10">
+            <label class="pb-2 text-xl text-white">Email</label>
+            <input
+              class="bg-secondary-500 px-2 text-white"
+              type="email"
+              name="email"
+            />
+          </div>
+          <div class="grid pb-10">
+            <label class="pb-2 text-xl text-white">Message</label>
+            <textarea
+              class="bg-secondary-500 p-2 text-white"
+              name="message"
+              rows={10}
+            ></textarea>
+          </div>
+          <div class="grid grid-cols-2">
+            <button
+              disabled={loading}
+              class="bg-secondary-500 mr-2 px-4 py-2 text-white hover:bg-indigo-400 hover:text-white"
+            >
+              {buttonText}
+            </button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                clear();
+              }}
+              class="border-secondary-500 text-secondary-500 ml-2 border-2 px-6 py-4 hover:border-indigo-400 hover:text-indigo-400"
+            >
+              Clear
+            </button>
+          </div>
+          {errorMessages}
+          {successMessage}
+        </form>
+      </div>
     </>
   );
 }
