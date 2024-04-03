@@ -85,7 +85,7 @@ export default function ContactForm() {
       <div class="bg-secondary-500 w-[20rem] py-5 sm:p-10 sm:w-[35rem] md:w-[48rem]">
         <form
           class="bg-indigo-950 p-10 shadow-2xl xl:border-b-0"
-          action="https://formspree.io/f/matthew.hope396@outlook.com"
+          action="https://formspree.io/f/xqkryvko"
           method="POST"
           onSubmit={onSubmitAsync}
           ref={formRef}
