@@ -10,16 +10,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/preact": "^3.0.0",
-    "@astrojs/tailwind": "^5.0.0",
-    "@preact/signals": "^1.2.1",
-    "astro": "^3.0.10",
-    "preact": "^10.6.5",
-    "tailwindcss": "^3.0.24"
+    "@astrojs/preact": "^4.1.1",
+    "@preact/signals": "^2.3.2",
+    "@tailwindcss/vite": "^4.1.16",
+    "astro": "^5.15.1",
+    "preact": "^10.27.2",
+    "tailwindcss": "^4.1.16"
   },
   "devDependencies": {
-    "prettier": "^3.0.3",
-    "prettier-plugin-astro": "^0.12.0",
-    "prettier-plugin-tailwindcss": "^0.5.4"
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.7.1"
   }
 }
