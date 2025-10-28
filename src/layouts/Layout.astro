@@ -3,6 +3,8 @@ import { Image } from "astro:assets";
 import TypeWriter from "../components/type-writer";
 import ContactForm from "../components/contact-form";
 import { NavMenu } from "../components/nav-menu";
+import '../styles/global.css'
+
 interface Props {
   title: string;
   header?: string;
@@ -35,123 +37,23 @@ const { title, header, typeWriterSuffix, typeWriterText } = Astro.props;
     />
     <title>{title}</title>
   </head>
-  <body class="font-mono">
+  <body class="font-mono min-h-screen bg-indigo-950/95 text-white">
     <script
       defer
       src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.js"
     ></script>
-    <script>
-      window.addEventListener("load", function () {
-        var cc = initCookieConsent();
-
-        cc.run({
-          current_lang: "en",
-          autoclear_cookies: true,
-          page_scripts: true,
-
-          languages: {
-            en: {
-              consent_modal: {
-                title: "We use cookies!",
-                description:
-                  'Hi, this website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
-                primary_btn: {
-                  text: "Accept all",
-                  role: "accept_all",
-                },
-                secondary_btn: {
-                  text: "Reject all",
-                  role: "accept_necessary",
-                },
-              },
-              settings_modal: {
-                title: "Cookie preferences",
-                save_settings_btn: "Save settings",
-                accept_all_btn: "Accept all",
-                reject_all_btn: "Reject all",
-                close_btn_label: "Close",
-                cookie_table_headers: [
-                  { col1: "Name" },
-                  { col2: "Domain" },
-                  { col3: "Expiration" },
-                  { col4: "Description" },
-                ],
-                blocks: [
-                  {
-                    title: "Cookie usage 📢",
-                    description:
-                      'I use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want. For more details relative to cookies and other sensitive data, please read the full <a href="#" class="cc-link">privacy policy</a>.',
-                  },
-                  {
-                    title: "Strictly necessary cookies",
-                    description:
-                      "These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly",
-                    toggle: {
-                      value: "necessary",
-                      enabled: true,
-                      readonly: true, // cookie categories with readonly=true are all treated as "necessary cookies"
-                    },
-                  },
-                  {
-                    title: "Performance and Analytics cookies",
-                    description:
-                      "These cookies allow the website to remember the choices you have made in the past",
-                    toggle: {
-                      value: "analytics", // your cookie category
-                      enabled: false,
-                      readonly: false,
-                    },
-                    cookie_table: [
-                      // list of all expected cookies
-                      {
-                        col1: "^_ga", // match all cookies starting with "_ga"
-                        col2: "google.com",
-                        col3: "2 years",
-                        col4: "description ...",
-                        is_regex: true,
-                      },
-                      {
-                        col1: "_gid",
-                        col2: "google.com",
-                        col3: "1 day",
-                        col4: "description ...",
-                      },
-                    ],
-                  },
-                  {
-                    title: "Advertisement and Targeting cookies",
-                    description:
-                      "These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you",
-                    toggle: {
-                      value: "targeting",
-                      enabled: false,
-                      readonly: false,
-                    },
-                  },
-                  {
-                    title: "More information",
-                    description:
-                      'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="#yourcontactpage">contact us</a>.',
-                  },
-                ],
-              },
-            },
-          },
-        });
-      });
-    </script>
     <main>
-      <header class="block bg-indigo-950 px-10 pb-10 pt-10 xl:px-20">
-        <navbar class="grid w-full grid-cols-2 xl:grid-cols-3">
-          <span class="pt-4 xl:col-span-2">
+      <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-indigo-950/60 bg-indigo-950/80 border-b border-white/10 px-6 py-4 xl:px-20">
+        <nav class="grid w-full grid-cols-2 xl:grid-cols-3 items-center">
+          <span class="xl:col-span-2 py-2">
             <a
               href="/"
-              class="bg-white px-4 py-2 text-indigo-950 hover:bg-indigo-400 hover:text-white"
+              class="bg-white rounded-lg px-4 py-2 text-indigo-950 hover:bg-indigo-400 hover:text-white"
               >matt-h.dev</a
             >
           </span>
           <NavMenu client:load />
-        </navbar>
+        </nav>
       </header>
       <div
         class="block bg-indigo-950 px-10 pb-20 pt-10 xl:px-56 xl:pb-64 xl:pt-40"
@@ -171,20 +73,20 @@ const { title, header, typeWriterSuffix, typeWriterText } = Astro.props;
         &lt;Contact me!/&gt;
       </h3>
       <div
-        class="bg-secondary-500 grid content-center justify-center px-10 pb-10 pt-10 xl:px-20"
+        class="bg-secondary-500 grid grid-cols-1 place-items-center p-6 xl:px-20"
       >
         <ContactForm client:visible />
       </div>
       <div class="block bg-indigo-950 px-10 md:px-20 py-10 text-3xl text-white">
-        <a href="https://www.codementor.io/@atleastitry?refer=badge"
-          ><Image
-            class="inline"
+        <a href="https://www.codementor.io/@atleastitry?refer=badge">
+          <img
+            class="inline h-8 w-auto"
             src="https://www.codementor.io/m-badges/atleastitry/im-a-cm-g.svg"
             alt="Codementor badge"
-            width={100}
-            height={50}
-          /></a
-        >
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
         <a class="ml-5" href="https://github.com/AtLeastITry" target="_blank">
           <i class="devicon-github-original hover:text-indigo-400"></i>
         </a>

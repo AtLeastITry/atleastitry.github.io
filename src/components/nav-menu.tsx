@@ -5,10 +5,10 @@ export function NavMenu() {
   const toggleMenu = () => (menuVisible.value = !menuVisible.value);
 
   const mobileMenu = computed(() => {
-    if (menuVisible.value === true) {
+    if (menuVisible.value) {
       return (
         <>
-          <span class="text-end align-middle text-2xl xl:hidden">
+          <span class="text-end text-2xl xl:hidden inline-flex items-center justify-end">
             <i
               onClick={toggleMenu}
               class="las la-bars cursor-pointer text-indigo-400"
@@ -19,23 +19,23 @@ export function NavMenu() {
               <a
                 href="/matt-h-resume.pdf"
                 target="_blank"
-                class="inline-block border-2 border-white px-6 py-4 text-white hover:border-indigo-400 hover:text-indigo-400"
+                class="inline-block border-2 rounded-lg border-white px-6 py-4 text-white hover:border-indigo-400 hover:text-indigo-400"
               >
                 Download my CV
               </a>
             </span>
             <span class="pt-10 text-center">
-              <a href="/#portfolio" class="text-white hover:text-indigo-400">
-                Portflio
+              <a href="/#portfolio" onClick={toggleMenu} class="text-white hover:text-indigo-400">
+                Portfolio
               </a>
             </span>
             <span class="pt-10 text-center">
-              <a href="/blog" class="text-white hover:text-indigo-400">
+              <a href="/blog" onClick={toggleMenu} class="text-white hover:text-indigo-400">
                 Blog
               </a>
             </span>
             <span class="pt-10 text-center">
-              <a href="/career" class="text-white hover:text-indigo-400">
+              <a href="/career" onClick={toggleMenu} class="text-white hover:text-indigo-400">
                 Career
               </a>
             </span>
@@ -46,7 +46,7 @@ export function NavMenu() {
 
     return (
       <>
-        <span class="text-end align-middle text-2xl xl:hidden">
+        <span class="text-end text-2xl xl:hidden inline-flex items-center justify-end">
           <i
             onClick={toggleMenu}
             class="las la-bars cursor-pointer text-white hover:text-indigo-400"
@@ -64,7 +64,7 @@ export function NavMenu() {
           <a
             href="/matt-h-resume.pdf"
             target="_blank"
-            class="inline-block border-2 border-white px-6 py-4 text-white hover:border-indigo-400 hover:text-indigo-400"
+            class="inline-block rounded-lg border-2 border-white px-6 py-4 text-white hover:border-indigo-400 hover:text-indigo-400"
           >
             Download my CV
           </a>
