@@ -8,7 +8,7 @@ export function NavMenu() {
     if (menuVisible.value === true) {
       return (
         <>
-          <span class="text-end align-middle text-2xl xl:hidden">
+          <span class="text-end text-2xl xl:hidden inline-flex items-center justify-end">
             <i
               onClick={toggleMenu}
               class="las la-bars cursor-pointer text-indigo-400"
@@ -46,7 +46,7 @@ export function NavMenu() {
 
     return (
       <>
-        <span class="text-end align-middle text-2xl xl:hidden">
+        <span class="text-end text-2xl xl:hidden inline-flex items-center justify-end">
           <i
             onClick={toggleMenu}
             class="las la-bars cursor-pointer text-white hover:text-indigo-400"
