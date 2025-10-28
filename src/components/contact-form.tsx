@@ -82,7 +82,7 @@ export default function ContactForm() {
 
   return (
     <>
-      <div class="rounded-lg border border-white/10 bg-indigo-950/60 p-6 shadow-2xl backdrop-blur xl:border-b-0 max-w-[20rem] sm:max-w-[35rem] md:max-w-[48rem]">
+      <div class="rounded-lg border border-white/10 bg-indigo-950/60 p-6 shadow-2xl backdrop-blur xl:border-b-0 w-full md:max-w-[48rem]">
         <form
           class=""
           action="https://formspree.io/f/xqkryvko"
@@ -93,7 +93,7 @@ export default function ContactForm() {
           <div class="grid grid-rows-2 pb-10">
             <label class="pb-2 text-xl text-white">Name</label>
             <input
-              class="bg-indigo-950 px-2 text-white rounded-lg"
+              class="bg-indigo-950 px-2 text-white rounded-lg w-full"
               type="text"
               name="name"
             />
@@ -101,7 +101,7 @@ export default function ContactForm() {
           <div class="grid grid-rows-2 pb-10">
             <label class="pb-2 text-xl text-white">Email</label>
             <input
-              class="bg-indigo-950 px-2 text-white rounded-lg"
+              class="bg-indigo-950 px-2 text-white rounded-lg w-full"
               type="email"
               name="email"
             />
@@ -109,7 +109,7 @@ export default function ContactForm() {
           <div class="grid pb-10">
             <label class="pb-2 text-xl text-white">Message</label>
             <textarea
-              class="bg-indigo-950 p-2 text-white rounded-lg"
+              class="bg-indigo-950 p-2 text-white rounded-lg w-full"
               name="message"
               rows={10}
             ></textarea>
