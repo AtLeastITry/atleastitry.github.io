@@ -117,7 +117,7 @@ export default function ContactForm() {
           <div class="grid grid-cols-2">
             <button
               disabled={loading}
-              class="bg-indigo-950 mr-2 px-4 py-2 text-white hover:bg-indigo-400 hover:text-white"
+              class="cursor-pointer border-white text-white rounded-lg mr-2 border-2 px-6 py-4 hover:border-indigo-400 hover:text-indigo-400"
             >
               {buttonText}
             </button>
@@ -126,7 +126,7 @@ export default function ContactForm() {
                 e.preventDefault();
                 clear();
               }}
-              class="border-indigo-950 text-indigo-950 ml-2 border-2 px-6 py-4 hover:border-indigo-400 hover:text-indigo-400"
+              class="cursor-pointer bg-indigo-950 mr-2 px-4 py-2 rounded-lg text-white hover:bg-indigo-400 hover:text-white"
             >
               Clear
             </button>
