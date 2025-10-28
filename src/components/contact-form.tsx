@@ -82,9 +82,9 @@ export default function ContactForm() {
 
   return (
     <>
-      <div class="bg-secondary-500 w-[20rem] py-5 sm:p-10 sm:w-[35rem] md:w-[48rem]">
+      <div class="rounded-lg border border-white/10 bg-indigo-950/60 p-6 shadow-2xl backdrop-blur xl:border-b-0 max-w-[20rem] sm:max-w-[35rem] md:max-w-[48rem]">
         <form
-          class="bg-indigo-950 p-10 shadow-2xl xl:border-b-0"
+          class=""
           action="https://formspree.io/f/xqkryvko"
           method="POST"
           onSubmit={onSubmitAsync}
@@ -93,7 +93,7 @@ export default function ContactForm() {
           <div class="grid grid-rows-2 pb-10">
             <label class="pb-2 text-xl text-white">Name</label>
             <input
-              class="bg-secondary-500 px-2 text-white"
+              class="bg-indigo-950 px-2 text-white rounded-lg"
               type="text"
               name="name"
             />
@@ -101,7 +101,7 @@ export default function ContactForm() {
           <div class="grid grid-rows-2 pb-10">
             <label class="pb-2 text-xl text-white">Email</label>
             <input
-              class="bg-secondary-500 px-2 text-white"
+              class="bg-indigo-950 px-2 text-white rounded-lg"
               type="email"
               name="email"
             />
@@ -109,7 +109,7 @@ export default function ContactForm() {
           <div class="grid pb-10">
             <label class="pb-2 text-xl text-white">Message</label>
             <textarea
-              class="bg-secondary-500 p-2 text-white"
+              class="bg-indigo-950 p-2 text-white rounded-lg"
               name="message"
               rows={10}
             ></textarea>
@@ -117,7 +117,7 @@ export default function ContactForm() {
           <div class="grid grid-cols-2">
             <button
               disabled={loading}
-              class="bg-secondary-500 mr-2 px-4 py-2 text-white hover:bg-indigo-400 hover:text-white"
+              class="bg-indigo-950 mr-2 px-4 py-2 text-white hover:bg-indigo-400 hover:text-white"
             >
               {buttonText}
             </button>
@@ -126,7 +126,7 @@ export default function ContactForm() {
                 e.preventDefault();
                 clear();
               }}
-              class="border-secondary-500 text-secondary-500 ml-2 border-2 px-6 py-4 hover:border-indigo-400 hover:text-indigo-400"
+              class="border-indigo-950 text-indigo-950 ml-2 border-2 px-6 py-4 hover:border-indigo-400 hover:text-indigo-400"
             >
               Clear
             </button>

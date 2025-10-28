@@ -16,12 +16,12 @@ const { title, company, start, end, description, isFirst } =
   {
     !isFirst && (
       <div class="grid content-center justify-center">
-        <i class="las la-long-arrow-alt-up text-6xl text-indigo-950" />
+        <i class="las la-long-arrow-alt-up text-6xl text-white/60 backdrop-blur shadow-2xl" />
       </div>
     )
   }
   <article
-    class="mx-5 sm:mx-10 bg-indigo-950 px-10 py-5 text-white shadow-2xl xl:mx-0 xl:px-20 w-[20rem] sm:w-[35rem] md:w-[48rem]"
+    class="mx-5 sm:mx-10 rounded-lg border border-white/10 bg-indigo-950/60 p-8 backdrop-blur px-10 py-5 text-white shadow-2xl xl:mx-0 xl:px-20 w-[20rem] sm:w-[35rem] md:w-[48rem]"
   >
     <p class="pb-2 text-start text-sm">[{start} - {end}]</p>
     <h1 class="border-b-2 text-2xl">{title}</h1>

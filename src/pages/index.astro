@@ -6,7 +6,7 @@ const projects = [
   {
     title: "Sourcey",
     description:
-      "Event souricng library with built in aggregate and projection support",
+      "Event sourcing library with built-in aggregate and projection support",
     url: "https://sourceyorg.github.io/",
   },
   {
@@ -48,21 +48,17 @@ const projects = [
     "Coding enthusiast...",
   ]}
 >
-  <div class="bg-secondary-500 px-10 py-10 text-white xl:px-40 xl:py-20">
-    <h2 class="pb-10 text-2xl">&lt;About me/&gt;</h2>
-    <p>
-      I'm a professional tech lead with a decade of software development
-      experience, focusing on innovation and leveraging current technologies to
-      build large scale enterprise applications. In-depth experience in
-      requirements gathering, sprint planning, development, design, maintenance,
-      and testing of software. Broad expertise in various platforms, frameworks,
-      and technologies with a proven ability to eﬃciently lead teams to work in
-      a collaborative way to deliver projects on schedule.
-    </p>
-  </div>
+  <section class="relative px-6 py-16 xl:px-40">
+    <div class="mx-auto max-w-8xl rounded-lg border border-white/10 bg-indigo-950/60 p-8 shadow-2xl backdrop-blur">
+      <h2 class="pb-6 text-3xl">&lt;About me/&gt;</h2>
+      <p class="text-white/90 leading-relaxed">
+        I'm a professional tech lead with a decade of software development experience, focusing on innovation and leveraging current technologies to build large‑scale enterprise applications. In‑depth experience in requirements gathering, sprint planning, development, design, maintenance, and testing. Broad expertise across platforms, frameworks, and tooling — with a proven ability to lead teams collaboratively and deliver on schedule.
+      </p>
+    </div>
+  </section>
 
-  <div id="portfolio" class="bg-indigo-950 px-10 py-10 text-white xl:px-40 xl:py-20">
-    <h2 class="mb-0 text-2xl">&lt;Portfolio/&gt;</h2>
-  </div>
+  <section id="portfolio" class="px-6 py-10 xl:px-40 xl:py-20">
+    <h2 class="mx-auto mb-6 max-w-5xl text-3xl">&lt;Portfolio/&gt;</h2>
+  </section>
   <Projects projects={projects} client:visible />
 </Layout>

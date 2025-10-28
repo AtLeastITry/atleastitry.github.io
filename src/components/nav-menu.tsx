@@ -26,7 +26,7 @@ export function NavMenu() {
             </span>
             <span class="pt-10 text-center">
               <a href="/#portfolio" class="text-white hover:text-indigo-400">
-                Portflio
+                Portfolio
               </a>
             </span>
             <span class="pt-10 text-center">

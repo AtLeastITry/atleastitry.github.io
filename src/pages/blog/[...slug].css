@@ -1,3 +1,5 @@
+@reference "tailwindcss";
+
 .blog-post {
   @apply px-10 py-10 xl:px-20;
 }

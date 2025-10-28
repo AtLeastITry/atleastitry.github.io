@@ -1,3 +1,5 @@
+@reference "tailwindcss";
+
 .project-bg-cyan {
   @apply bg-cyan-500;
 }
@@ -47,9 +49,9 @@
 }
 
 .project-bg-secondary {
-  @apply bg-secondary-500;
+  @apply bg-slate-500;
 }
 
 .project-bg-secondary-hover {
-  @apply hover:bg-secondary-300;
+  @apply hover:bg-slate-300;
 }
