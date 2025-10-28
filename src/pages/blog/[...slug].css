@@ -1,17 +1,19 @@
+@reference "tailwindcss";
+
 .blog-post {
   @apply px-10 py-10 xl:px-20;
 }
 
 .blog-post p {
-  @apply mb-10 text-indigo-950;
+  @apply mb-10 text-white;
 }
 
 .blog-post h2 {
-  @apply mb-10 text-2xl text-indigo-950 underline underline-offset-8;
+  @apply mb-10 text-2xl text-white underline underline-offset-8;
 }
 
 .blog-post h3 {
-  @apply mb-10 text-xl text-indigo-950;
+  @apply mb-10 text-xl text-white;
 }
 
 .blog-post pre {

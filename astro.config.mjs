@@ -1,10 +1,11 @@
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import {defineConfig} from "astro/config";
+import tailwindcss from "@tailwindcss/vite";
 
 import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://atleastitry.github.io",
-  integrations: [tailwind(), preact({ compat: true })],
+    site: "https://atleastitry.github.io",
+    integrations: [preact({compat: true})],
+    vite: {plugins: [tailwindcss()],},
 });
