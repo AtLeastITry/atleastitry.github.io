@@ -5,7 +5,7 @@ export function NavMenu() {
   const toggleMenu = () => (menuVisible.value = !menuVisible.value);
 
   const mobileMenu = computed(() => {
-    if (menuVisible.value === true) {
+    if (menuVisible.value) {
       return (
         <>
           <span class="text-end text-2xl xl:hidden inline-flex items-center justify-end">

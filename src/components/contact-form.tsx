@@ -8,7 +8,7 @@ export default function ContactForm() {
   const isSuccess = useSignal(false);
 
   const successMessage = computed(() => {
-    if (isSuccess.value === false) return null;
+    if (!isSuccess.value) return null;
 
     return (
       <div class="my-4 bg-green-500 p-4 text-white">
@@ -40,7 +40,7 @@ export default function ContactForm() {
   ) => {
     event.preventDefault();
 
-    if (!event.target || isSuccess.value === true) return;
+    if (!event.target || isSuccess.value) return;
 
     loading.value = true;
     errors.value = [];
@@ -58,7 +58,7 @@ export default function ContactForm() {
 
     const responseData = await response.json();
 
-    if (response.ok === false) {
+    if (!response.ok) {
       if (responseData.errors !== undefined) {
         //@ts-ignore
         errors.value = responseData.errors.map((e) => e.message);
